@@ -1,0 +1,24 @@
+{
+  "name": "hetic-p2023-react",
+  "version": "0.1.0",
+  "description": "Introduction to React.js and front-end libraries",
+  "main": "index.js",
+  "repository": "git@github.com:greeeg/hetic-p2023-react.git",
+  "author": "greeeg <hello@greeeg.com> (https://greeeg.com/)",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "clean": "rm -rf dist",
+    "static": "mkdir -p dist/assets && cp -R assets dist",
+    "build": "yarn run clean && yarn run static && mdx-deck build deck.mdx --no-html",
+    "pdf": "./node_modules/.bin/website-pdf http://localhost:8000/print -o deck.pdf -w 1920 -h 1080",
+    "screenshot": "./node_modules/.bin/capture-website-cli http://localhost:8000 deck.png",
+    "help": "mdx-deck"
+  },
+  "devDependencies": {
+    "capture-website-cli": "^0.6.0",
+    "mdx-deck": "^4.0.0",
+    "website-pdf": "^4.0.0"
+  }
+}
