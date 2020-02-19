@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/greeeg/hetic-p2023-react/blob/master/assets/react-logo.png" width="220" /></p>
 
-# hetic-p2023-react &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/greeeg/hetic-p2023-react/blob/master/LICENSE) [![Pull requests](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/greeeg/hetic-p2023-react/pulls)
+# hetic-p2023-react &middot; [![GitHub license](https://img.shields.io/badge/license-AGPLv3-blue)](https://github.com/greeeg/hetic-p2023-react/blob/master/LICENSE) [![Pull requests](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/greeeg/hetic-p2023-react/pulls)
 
 > Introduction à [React.js](http://reactjs.org/) et au développement front-end avancé à [HETIC](https://www.hetic.net/)
 
