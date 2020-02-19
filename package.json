@@ -8,17 +8,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "mdx-deck deck.mdx",
-    "clean": "rm -rf dist",
-    "static": "mkdir -p dist/assets && cp -R assets dist",
-    "build": "yarn run clean && yarn run static && mdx-deck build deck.mdx --no-html",
-    "pdf": "./node_modules/.bin/website-pdf http://localhost:8000/print -o deck.pdf -w 1920 -h 1080",
-    "screenshot": "./node_modules/.bin/capture-website-cli http://localhost:8000 deck.png",
-    "help": "mdx-deck"
+    "presentation:start": "mdx-deck ./presentation/deck.mdx",
+    "presentation:build": "mdx-deck build ./presentation/deck.mdx --no-html",
+    "presentation:pdf": "./node_modules/.bin/website-pdf http://localhost:8000/print -o deck.pdf -w 1920 -h 1080",
+    "examples:start": "./node_modules/.bin/parcel ./examples/index.html --open"
   },
   "devDependencies": {
-    "capture-website-cli": "^0.6.0",
     "mdx-deck": "^4.0.0",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.25.0",
     "website-pdf": "^4.0.0"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }
