@@ -1,0 +1,33 @@
+.global-nav {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 120px;
+  padding: 0px 20px;
+}
+
+.global-nav__title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #3e3e3e;
+}
+
+.global-nav__list {
+  .global-nav__item:not(:first-child) {
+    margin-top: 12px;
+  }
+}
+
+.global-nav__item {
+  font-size: 18px;
+
+  a {
+    color: #4a4a4a;
+    text-decoration: underline;
+
+    &:hover {
+      color: #2c6fff;
+    }
+  }
+}

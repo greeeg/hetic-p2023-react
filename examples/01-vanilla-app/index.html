@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Vanilla App</title>
+    <title>Reddit - Vanilla JS App</title>
 
-    <link rel="stylesheet" href="./index.scss" />
+    <link rel="stylesheet" href="../utils/threads.scss" />
   </head>
   <body>
     <main>
-      <ul>
-        <li>
-          <div>
-            <button>
+      <ul class="threads">
+        <li class="thread">
+          <div class="thread__actions">
+            <button class="thread__button js-upvote">
               <svg
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +22,7 @@
                 viewBox="0 0 512.171 512.171"
                 style="enable-background:new 0 0 512.171 512.171;"
                 xml:space="preserve"
+                class="thread__button-icon thread__button-icon--reversed"
               >
                 <g>
                   <path
@@ -34,9 +35,9 @@
               </svg>
             </button>
 
-            <span>1</span>
+            <span class="thread__upvotes-count js-vote-count">0</span>
 
-            <button>
+            <button class="thread__button js-downvote">
               <svg
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,6 +47,7 @@
                 viewBox="0 0 512.171 512.171"
                 style="enable-background:new 0 0 512.171 512.171;"
                 xml:space="preserve"
+                class="thread__button-icon"
               >
                 <g>
                   <path
@@ -59,12 +61,15 @@
             </button>
           </div>
 
-          <div>
-            <span>TheRealReapz <b>14.5k points</b></span>
-            <h3>
+          <div class="thread__content">
+            <span class="thread__author"
+              >TheRealReapz
+              <b class="thread__author-stats">14.5k points</b></span
+            >
+            <h3 class="thread__title">
               What do you wish you had in high school that kids have today?
             </h3>
-            <p>
+            <p class="thread__body">
               MP3 players/Spotify and the like. I had to carry around my discman
               on my long walk home from school, even with antiskip it would
               still buffer every now and then. Don't get me started on batteries
@@ -75,5 +80,7 @@
         </li>
       </ul>
     </main>
+
+    <script src="./index.js"></script>
   </body>
 </html>

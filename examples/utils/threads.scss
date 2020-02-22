@@ -1,0 +1,109 @@
+@import '../utils/normalize.scss';
+
+body {
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+.threads {
+  width: calc(100%-40px);
+  padding: 0px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 200px;
+
+  .thread:not(:first-child) {
+    margin-top: 20px;
+  }
+}
+
+.thread {
+  background-color: #fff;
+  padding: 40px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2),
+    6px 5px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.thread__actions {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.thread__content {
+  flex: 1;
+  padding-left: 10px;
+}
+
+.thread__author {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.thread__button {
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 4px;
+
+  &:hover {
+    path {
+      fill: #2c6fff;
+    }
+  }
+
+  &:focus {
+    path {
+      fill: #000000;
+    }
+  }
+
+  &.active {
+    path {
+      fill: #2c6fff;
+    }
+  }
+}
+
+.thread__button-icon {
+  width: 20px;
+  height: auto;
+
+  path {
+    fill: #3e3e3e;
+  }
+
+  &--reversed {
+    transform: rotate(180deg);
+  }
+}
+
+.thread__title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #3e3e3e;
+}
+
+.thread__body {
+  line-height: 1.4;
+  color: #4a4a4a;
+}
+
+.thread__upvotes-count {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px 0px 10px 0px;
+}

@@ -6,15 +6,25 @@
     <title>Hello</title>
 
     <link rel="stylesheet" href="./utils/normalize.scss" />
+    <link rel="stylesheet" href="./utils/global-nav.scss" />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="/01-vanilla-app/index.html">Example 1 - Vanilla App</a>
+    <nav class="global-nav">
+      <h1 class="global-nav__title">Introduction à React.js</h1>
+
+      <ul class="global-nav__list">
+        <li class="global-nav__item">
+          <a href="/01-vanilla-app/index.html"
+            >Example 1 - Reddit Vanilla JS App</a
+          >
         </li>
-        <li>
-          <a href="/02-react-intro/index.html">Example 2 - Vanilla App</a>
+        <li class="global-nav__item">
+          <a href="/02-vanilla-app-oop/index.html"
+            >Example 2 - Reddit POO App</a
+          >
+        </li>
+        <li class="global-nav__item">
+          <a href="/03-react-intro/index.html">Example 3 - React Intro</a>
         </li>
       </ul>
     </nav>
