@@ -2,24 +2,22 @@
   "name": "hetic-p2023-react",
   "version": "0.1.0",
   "description": "Introduction to React.js and front-end libraries",
-  "main": "index.js",
   "repository": "git@github.com:greeeg/hetic-p2023-react.git",
   "author": "greeeg <hello@greeeg.com> (https://greeeg.com/)",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "private": true,
   "scripts": {
     "presentation:start": "mdx-deck ./presentation/deck.mdx",
     "presentation:build": "mdx-deck build ./presentation/deck.mdx --no-html",
     "presentation:pdf": "./node_modules/.bin/website-pdf http://localhost:8000/print -o deck.pdf -w 1920 -h 1080",
-    "examples:start": "./node_modules/.bin/parcel ./examples/index.html --open"
+    "examples:start": "./node_modules/.bin/parcel ./examples/index.html --open",
+    "examples:build": "./node_modules/.bin/parcel build ./examples/index.html"
   },
-  "devDependencies": {
+  "dependencies": {
     "mdx-deck": "^4.0.0",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.25.0",
-    "website-pdf": "^4.0.0"
-  },
-  "dependencies": {
+    "website-pdf": "^4.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
