@@ -20,44 +20,64 @@ Très concrètement, être capable de développer une application React.js fonct
 ## 🗺 Ressources
 
 - 👨‍🏫 **La présentation**: [`Site web`](https://hetic-p2023-react.netlify.com/)
-- 📐 **Les exemples**: [`Site web`](https://hetic-p2023-react-examples.netlify.com/)
-- 📐 **Wikily**: [`Site web`](https://wikily.netlify.com/) [`GitHub`](https://github.com/greeeg/wikily)
+- 🧰 **Les exemples**: [`Site web`](https://hetic-p2023-react-examples.netlify.com/)
+- 🌍 **Wikily**: [`Site web`](https://wikily.netlify.com/) [`GitHub`](https://github.com/greeeg/wikily)
 
 ## 🏁 Le plan
 
-#### Prérequis
+### Le contexte
 
-- Retour sur l'ES6
+- Les interfaces homme/machine en perspective
+- Et le web dans tout ça ? (Comment on faisait des sites avant/apres)
+- Les problemes aujourd'hui
 
-#### Qu'est-ce que React ?
+### React : une réponse à ces problématiques
 
-- Pourquoi React ?
+- Qu'est-ce que React.js
 - Les concepts derrière React
   - Declaratif vs Imperatif
   - Everything is a component
   - Learn once, write everywhere
-- Avantages/Inconvénients
-- Alternatives
 
-#### Les bases de React.js
+### Les bases de React.js
 
+- Hello World (Vanilla JS vs React)
 - Le JSX
+- Un premier composant React.js
 - Les Props
-- State & Cycle de vie des composants
-- Gestion des évènments
 - Rendu conditionnel
+- Gestion des évènments
+- State & Cycle de vie des composants
+- Styliser des composants
 - Listes
 - Champs & Formulaires
 
-#### Aller plus loin avec React.js
+### Mise en perspective de React.js
 
-- Styliser des composants
+- Avantages/Inconvénients
+- Alternatives
+
+### Aller plus loin avec React.js
+
 - Les refs
 - Les fragments
+- Le CSS-in-JS
+- Les requêtes HTTP en React.js
 - Utiliser `create-react-app`
+- Construire et deployer une app
+- Le routing
+- Optimizing performances (Code-splitting, Profiler)
 
-#### L'écosystème React
+### L'écosystème React
 
 - Thinking in React
 - React.js developer roadmap
 - The React community
+
+### Aller encore plus loin
+
+- Accessibilite
+- Typechecking (PropTypes, Typescript, ReasonML)
+- Testing in React.js
+- Server-side rendering
+- Design systems & Librairies de composants
