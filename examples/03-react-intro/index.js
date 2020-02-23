@@ -1,6 +1,12 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 
-const App = React.createElement('div', {}, 'Hello World');
+// Creating an HTML element in Vanilla JS
+const element = document.createElement('p');
+element.innerHTML = 'Hello World';
+element.classList.add('paragraph');
+document.querySelector('#root').appendChild(element);
 
-render(App, document.querySelector('#root'));
+// Creating an element in React.js
+// const element = React.createElement('div', {}, 'Hello World');
+// ReactDOM.render(element, document.querySelector('#root'));
