@@ -1,20 +1,93 @@
-import { Header, Footer, themes } from 'mdx-deck'
-import myTheme from './theme'
+import { Head, Header, Steps } from 'mdx-deck'
+import { CodeSurfer } from "code-surfer"
+import { nightOwl } from "@code-surfer/themes"
+import { FootNote } from './components/FootNote'
+import ReactLogo from './static/react-logo.png'
+import { theme as myTheme } from './theme'
+
 export const theme = myTheme
+
+<Head>
+  <title>
+    🚀 Introduction à React.js — @greeeg
+  </title>
+</Head>
 
 <Header>
 
-# Header
+<p style={{ marginLeft: 14, marginTop: 40, display: 'flex', flexDirection: 'row' }}>
+  <img src={ReactLogo} style={{ width: 80, height: 'auto', marginRight: 0 }} />
+
+  <div>
+    <span style={{ display: 'block', fontSize: 24, fontWeight: '500', marginBottom: 4 }}> Introduction à React.js</span>
+    <span style={{ display: 'block', fontSize: 16 }}>@hetic - P2023</span>
+  </div>
+</p>
 
 </Header>
 
-<Footer>
+# Introduction à React.js
 
-[@jxnblk](https://twitter.com/jxnblk)
+HETIC P2023
 
-</Footer>
+---
 
-# Hello!
+# Hello 💂‍♂️
+
+---
+
+# Grégoire Mielle
+
+- 📣 Twitter: [@greeeg](https://twitter.com/greeeg)
+- 🔬 GitHub: [@greeeg](https://github.com/greeeg)
+- ✏️ Email: [hello@greeeg.com](mailto:hello@greeeg.com)
+
+---
+
+<Steps>
+
+- 👨‍💻 Étudiant en H5
+- 👨‍🚀 Software Engineer [@PayFit](https://payfit.com/en/)
+- 💸 Freelance
+
+</Steps>
+
+---
+
+<Steps>
+
+- Une expertise pour tout le monde
+- Une compétence pour vos futurs projets & stages
+- Si vous êtes perdu, dites-le
+- Challengez-moi !
+
+</Steps>
+
+---
+
+# Méthodologie
+
+- 📚 Must read
+- 🍿 Must watch
+- ⚡️ Must learn
+- 👨‍🔬 Action time
+
+---
+
+<Steps>
+
+  # Un peu d'histoire...
+  Comment fonctionne l'affichage d'une page web ?
+
+</Steps>
+
+---
+
+import History from './static/history.png'
+
+<img src={History} style={{ width: '60vw', height: 'auto' }} />
+
+<FootNote>Hey</FootNote>
 
 ---
 

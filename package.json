@@ -9,16 +9,17 @@
   "scripts": {
     "presentation:start": "mdx-deck ./presentation/deck.mdx",
     "presentation:build": "mdx-deck build ./presentation/deck.mdx --no-html",
-    "presentation:pdf": "./node_modules/.bin/website-pdf http://localhost:8000/print -o deck.pdf -w 1920 -h 1080",
+    "presentation:pdf": "./node_modules/.bin/website-pdf http://localhost:8000/print -o hetic-p2023-react.pdf -w 1920 -h 1080",
     "examples:start": "./node_modules/.bin/parcel ./examples/index.html --open",
     "examples:build": "./node_modules/.bin/parcel build ./examples/index.html"
   },
   "dependencies": {
+    "code-surfer": "^3.1.0",
     "mdx-deck": "^4.0.0",
     "parcel-bundler": "^1.12.4",
-    "sass": "^1.25.0",
-    "website-pdf": "^4.0.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "sass": "^1.25.0",
+    "website-pdf": "^4.1.0"
   }
 }

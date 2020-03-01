@@ -1,65 +1,58 @@
-import { dark } from '@mdx-deck/themes';
+import { nightOwl } from '@code-surfer/themes';
 
-export const colors = {
-  black: 'rgb(1, 22, 39)',
-  grey: '#525252',
-  white: '#fff',
-  red: 'rgb(255, 203, 139)'
+const YELLOW = 'rgb(255, 203, 139)';
+
+const defaultHeadingStyles = () => ({
+  fontWeight: '500',
+  maxWidth: '75vw',
+  margin: 0,
+  marginBottom: 34
+});
+
+const responsiveFontSize = baseSize => {
+  return `calc(${baseSize}px + 6 * ((100vw - 320px) / 680))`;
 };
 
-export const sizes = {
-  h1: '5.5em',
-  h1Small: '4em',
-  h2: '2.11em',
-  h3: '1.55em',
-  p: '2.5em',
-  small: '1.4em'
-};
-
-export default {
-  ...dark,
-  colors: {
-    background: colors.black,
-    text: colors.white
-  },
-  h1: {
-    color: colors.white,
-    fontWeight: '500',
-    maxWidth: '50vw',
-    fontSize: sizes.h1
-  },
-  h2: {
-    color: colors.grey,
-    fontWeight: 'normal',
-    maxWidth: '70vw',
-    fontSize: sizes.h2
-  },
-  h3: {
-    fontSize: sizes.h3
-  },
-  font: 'Larsseit',
-  ul: {
-    margin: '20px',
-    fontWeight: '500',
-    fontSize: sizes.p
-  },
-  p: {
-    fontWeight: '500',
-    fontSize: sizes.p
-  },
-  li: {
-    padding: '20px 0 20px 0',
-    color: colors.red,
-    fontWeight: '500',
-    fontSize: sizes.p
-  },
-  a: {
-    color: colors.red,
-    textDecoration: 'none',
-    fontWeight: '500',
-    fontSize: sizes.p
-  },
-  css: {
-    textAlign: 'left'
+export const theme = {
+  ...nightOwl,
+  styles: {
+    h1: {
+      ...defaultHeadingStyles(),
+      fontSize: responsiveFontSize(60)
+    },
+    h2: {
+      ...defaultHeadingStyles(),
+      fontSize: responsiveFontSize(48)
+    },
+    h3: {
+      ...defaultHeadingStyles(),
+      fontSize: responsiveFontSize(40)
+    },
+    p: {
+      fontWeight: '500',
+      margin: 0,
+      marginBottom: 20,
+      fontSize: responsiveFontSize(20)
+    },
+    ul: {
+      paddingLeft: 0,
+      margin: 0,
+      marginBottom: 20,
+      marginTop: 20
+    },
+    li: {
+      listStyle: 'none',
+      lineHeight: 1.75,
+      fontWeight: '500',
+      fontSize: responsiveFontSize(24)
+    },
+    a: {
+      color: YELLOW,
+      textDecoration: 'none',
+      fontWeight: '500',
+      ':hover': {
+        textDecoration: 'underline'
+      }
+    }
   }
 };
