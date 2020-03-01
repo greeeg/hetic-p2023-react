@@ -19,7 +19,7 @@ Très concrètement, être capable de développer une application React.js fonct
 
 ## 🗺 Ressources
 
-- 👨‍🏫 **La présentation**: [`Site web`](https://hetic-p2023-react.netlify.com/)
+- 👨‍🏫 **La présentation**: [`Site web`](https://hetic-p2023-react.netlify.com/) [`PDF`](https://github.com/greeeg/hetic-p2023-react/raw/master/hetic-p2023-react.pdf)
 - 🧰 **Les exemples**: [`Site web`](https://hetic-p2023-react-examples.netlify.com/)
 - 🌍 **Wikily**: [`Site web`](https://wikily.netlify.com/) [`GitHub`](https://github.com/greeeg/wikily)
 
