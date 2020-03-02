@@ -2,7 +2,7 @@ import { Head, Header, Steps } from 'mdx-deck'
 import { CodeSurfer } from "code-surfer"
 import { nightOwl } from "@code-surfer/themes"
 import { FootNote } from './components/FootNote'
-import ReactLogo from './static/react-logo.png'
+import { Logo } from './components/Logo'
 import { theme as myTheme } from './theme'
 
 export const theme = myTheme
@@ -14,16 +14,7 @@ export const theme = myTheme
 </Head>
 
 <Header>
-
-<p style={{ marginLeft: 14, marginTop: 40, display: 'flex', flexDirection: 'row' }}>
-  <img src={ReactLogo} style={{ width: 80, height: 'auto', marginRight: 0 }} />
-
-  <div>
-    <span style={{ display: 'block', fontSize: 24, fontWeight: '500', marginBottom: 4 }}> Introduction à React.js</span>
-    <span style={{ display: 'block', fontSize: 16 }}>@hetic - P2023</span>
-  </div>
-</p>
-
+  <Logo />
 </Header>
 
 # Introduction à React.js
@@ -74,12 +65,9 @@ HETIC P2023
 
 ---
 
-<Steps>
+# Un peu d'histoire...
 
-  # Un peu d'histoire...
-  Comment fonctionne l'affichage d'une page web ?
-
-</Steps>
+Comment fonctionne l'affichage d'une page web ?
 
 ---
 
@@ -87,8 +75,184 @@ import History from './static/history.png'
 
 <img src={History} style={{ width: '60vw', height: 'auto' }} />
 
-<FootNote>Hey</FootNote>
+<FootNote>📚 <a href="https://www.freecodecamp.org/news/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c/">Comment le web fonctionne ?</a></FootNote>
 
 ---
 
-This deck has a header and footer
+import AndroidJqueryReact from './static/android-jquery-react.png'
+
+<img src={AndroidJqueryReact} style={{ width: '60vw', height: 'auto', marginBottom: 40 }} />
+
+Quel est le lien entre toutes ces technologies ?
+
+---
+
+# Technologies client-side
+
+<Steps>
+
+- Interfaces plus complexes
+- Beaucoup plus d'interactions
+
+</Steps>
+
+---
+
+# Les besoins côté utilisateur ont évolué
+
+- Expérience mobile (3G, offline, etc.)
+- Sources de données nombreuses
+
+<FootNote>📚 <a href="https://web.dev/">Le futur du web avec Google - Web.dev</a></FootNote>
+
+---
+
+import Craiglist from './static/craiglist.png'
+
+<img src={Craiglist} style={{ height: '60vh', width: 'auto' }} />
+
+---
+
+import Twitter from './static/twitter.png'
+
+<img src={Twitter} style={{ height: '60vh', width: 'auto' }} />
+
+---
+
+# De nouvelles solutions ont émergé
+
+- Jquery (2006)
+- Angular.js (2009)
+- Ember.js (2011)
+- React.js (2013)
+- Vue.js (2014)
+
+---
+
+# 🤔
+
+<Steps>
+
+- Comment bien les choisir ?
+- Quelles différences/ressemblances ?
+
+</Steps>
+
+---
+
+# 📚 [State of JS - 2019 Edition](https://2019.stateofjs.com/)
+
+---
+
+import ReactNPMStats from './static/react-npm-stats.png'
+
+<img src={ReactNPMStats} style={{ height: '50vh', width: 'auto' }} />
+
+---
+
+import ReactGitHubStats from './static/react-github-stats.png'
+
+<img src={ReactGitHubStats} style={{ width: '80vw', height: 'auto' }} />
+
+---
+
+import ReactChromeStats from './static/react-chrome-stats.png'
+
+<img src={ReactChromeStats} style={{ width: '60vw', height: 'auto' }} />
+
+---
+
+# React.js
+
+A JavaScript library for building user interfaces
+
+---
+
+<Steps>
+
+- Declarative
+- Component-Based
+- Learn Once, Write Anywhere
+
+</Steps>
+
+---
+
+# Declarative vs Imperative
+
+**Dessine un chat.** vs **Fais un trait noir, puis un arrondi vers le bas, etc.**
+
+<FootNote>📚 <a href="https://codeburst.io/declarative-vs-imperative-programming-a8a7c93d9ad2">Declarative vs Imperative programming</a></FootNote>
+
+---
+
+import SheetImperative from './static/sheet-imperative.gif'
+
+# Imperative
+
+<img src={SheetImperative} style={{ width: '50vw', height: 'auto', marginBottom: 50 }} />
+
+On doit effectuer un calcul à chaque modification d'une des 2 variables qui définissent "fullname"
+
+---
+
+import SheetDeclarative from './static/sheet-declarative.gif'
+
+# Declarative
+
+<img src={SheetDeclarative} style={{ width: '50vw', height: 'auto', marginBottom: 50 }} />
+
+On déclare comment "fullname" est défini sans jamais le modifier manuellement
+
+---
+
+import ComponentsTree from './static/components-tree.png'
+
+# Component-based
+
+<img src={ComponentsTree} style={{ width: 'auto', height: '40vh' }} />
+
+<FootNote>📚 <a href="https://itnext.io/a-guide-to-component-driven-development-cdd-1516f65d8b55">A Guide to Component Driven Development</a></FootNote>
+
+---
+
+import ReactPlatforms from './static/react-platforms.png'
+
+# Learn Once, Write Anywhere
+
+<img src={ReactPlatforms} style={{ width: '60vw', height: 'auto' }} />
+
+<FootNote>📚 <a href="https://engineering.fb.com/android/react-native-bringing-modern-web-techniques-to-mobile/">React Native: Bringing modern web techniques to mobile</a></FootNote>
+
+---
+
+# Qui l'utilise ?
+
+- Facebook (FB.com, WhatsApp, Instagram)
+- American Express
+- Apple
+- Baidu
+- Netflix
+- Uber
+
+---
+
+# Qui l'utilise ?
+
+- Skype
+- Tesla
+- Slack
+- Discord
+- Walmart
+- Pinterest
+
+---
+
+# Qui l'utilise ?
+
+- Twitter
+- PayPal
+- Tinder
+- AirBnB
+- Dropbox
+- PayFit

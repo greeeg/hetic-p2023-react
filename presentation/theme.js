@@ -1,6 +1,7 @@
 import { nightOwl } from '@code-surfer/themes';
 
 const YELLOW = 'rgb(255, 203, 139)';
+const BLUE = '#5dd3f3';
 
 const defaultHeadingStyles = () => ({
   fontWeight: '500',
@@ -53,6 +54,10 @@ export const theme = {
       ':hover': {
         textDecoration: 'underline'
       }
+    },
+    strong: {
+      fontWeight: '500',
+      color: BLUE
     }
   }
 };
