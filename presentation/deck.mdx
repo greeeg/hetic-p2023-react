@@ -222,7 +222,7 @@ import ReactPlatforms from './static/react-platforms.png'
 
 <img src={ReactPlatforms} style={{ width: '60vw', height: 'auto' }} />
 
-<FootNote>📚 <a href="https://engineering.fb.com/android/react-native-bringing-modern-web-techniques-to-mobile/">React Native: Bringing modern web techniques to mobile</a></FootNote>
+<FootNote>🍿 <a href="https://reactpodcast.simplecast.fm/81">React Podcast: Evan Bacon on Expo and the Future of "Build Once; Run Anywhere"</a></FootNote>
 
 ---
 
@@ -256,3 +256,313 @@ import ReactPlatforms from './static/react-platforms.png'
 - AirBnB
 - Dropbox
 - PayFit
+
+---
+
+# Hello World 🚀
+
+---
+
+# Comment crée-t-on un élément du DOM en Javascript ?
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```html subtitle="On recupere une reference de notre parent"
+<body>
+  <div id="root"></div>
+
+  <script type="text/javascript">
+    function addHelloWorld() {
+      const root = document.querySelector('#root')
+    }
+  </script>
+</body>
+```
+
+```html subtitle="On cree un element"
+<body>
+  <div id="root"></div>
+
+  <script type="text/javascript">
+    function addHelloWorld() {
+      const root = document.querySelector('#root')
+      const element = document.createElement('div')
+      element.textContent = 'Hello World'
+      element.className = 'container'
+    }
+  </script>
+</body>
+```
+
+```html 1:13 subtitle="On l'ajoute dans le parent"
+<body>
+  <div id="root"></div>
+
+  <script type="text/javascript">
+    function addHelloWorld() {
+      const root = document.querySelector('#root')
+      const element = document.createElement('div')
+      element.textContent = 'Hello World'
+      element.className = 'container'
+      root.appendChild(element)
+    }
+  </script>
+</body>
+```
+
+</CodeSurfer>
+
+---
+
+# Avec React.js
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```html subtitle="On importe deux packages/librairies"
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script type="text/javascript">
+
+  </script>
+</body>
+```
+
+```html subtitle="On recupere une reference de notre parent"
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script type="text/javascript">
+    const root = document.getElementById('root')
+  </script>
+</body>
+```
+
+```html subtitle="On cree notre element"
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script type="text/javascript">
+    const root = document.getElementById('root')
+    const element = React.createElement('div', {
+      className: 'container',
+      children: 'Hello World',
+    })
+  </script>
+</body>
+```
+
+```html subtitle="On l'ajoute dans le parent"
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script type="text/javascript">
+    const root = document.getElementById('root')
+    const element = React.createElement('div', {
+      className: 'container',
+      children: 'Hello World',
+    })
+    ReactDOM.render(element, root)
+  </script>
+</body>
+```
+
+</CodeSurfer>
+
+---
+
+# Pour utiliser React.js on a donc besoin de 2 packages
+
+<Steps>
+
+- **React**: La logique pour construire des interfaces
+- **React DOM**: Les logiques d'interaction avec le DOM
+
+</Steps>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```html
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script type="text/javascript">
+    const root = document.getElementById('root')
+    const element = React.createElement('div', {
+      className: 'container',
+      children: 'Hello World',
+    })
+    ReactDOM.render(element, root)
+  </script>
+</body>
+```
+
+```html subtitle="Du HTML dans du Javascript 🤔"
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script type="text/javascript">
+    const root = document.getElementById('root')
+    const element = <div className="container">Hello World</div>
+    ReactDOM.render(element, root)
+  </script>
+</body>
+```
+
+</CodeSurfer>
+
+---
+
+# Le JSX
+
+<Steps>
+
+- Une extension syntaxique au Javascript
+- Transpilé par [Babel](https://babeljs.io/en/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBApgGzgWzmWBeGAeAJgSwDcZgEBDCCAOTNQwCJR0z8w4AnegPgAlEEQMAOoh2CXNgD0BQlyA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.8.7&externalPlugins=) en Javascript
+- Permet de définir des composants React simplement
+
+</Steps>
+
+<FootNote>📚 <a href="https://jasonformat.com/wtf-is-jsx/">WTF is JSX?</a></FootNote>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="Mais du coup si c'est du Javascript 🤯"
+const root = document.getElementById('root')
+
+const element = <div className="container">Hello World</div>
+ReactDOM.render(element, root)
+```
+
+```jsx
+const root = document.getElementById('root')
+
+const text = "Hello World"
+const element = <div className="container">{text}</div>
+ReactDOM.render(element, root)
+```
+
+```jsx
+const root = document.getElementById('root')
+
+const text = "Hello World"
+const element = <div className="container">{text.toUpperCase()}</div>
+ReactDOM.render(element, root)
+```
+
+```jsx
+const root = document.getElementById('root')
+
+const text = "Hello World"
+const attributes = {
+  className: "container",
+  style: {
+    color: "red"
+  }
+}
+const element = <div {...attributes}>{text.toUpperCase()}</div>
+ReactDOM.render(element, root)
+```
+
+</CodeSurfer>
+
+---
+
+# Les composants React.js
+
+---
+
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+const root = document.getElementById('root')
+
+const element = (
+  <div className="container">
+    <p>Hello World</p>
+  </div>
+)
+
+ReactDOM.render(element, root)
+```
+
+```jsx
+const root = document.getElementById('root')
+
+const element = (
+  <div className="container">
+    <p>Hello World</p>
+    <p>Goodbye World</p>
+  </div>
+)
+
+ReactDOM.render(element, root)
+```
+
+```jsx
+const root = document.getElementById('root')
+
+const message = <p>Hello World</p>
+
+const element = (
+  <div className="container">
+    {message}
+    {message}
+  </div>
+)
+
+ReactDOM.render(element, root)
+```
+
+```jsx
+const root = document.getElementById('root')
+
+const message = (props) => <p>{props.children}</p>
+
+const element = (
+  <div className="container">
+    {React.createElement(message, { children: "Hello World" })}
+    {React.createElement(message, { children: "Goodbye World" })}
+  </div>
+)
+
+ReactDOM.render(element, root)
+```
+
+```jsx
+const root = document.getElementById('root')
+
+const Message = (props) => <p>{props.children}</p>
+
+const element = (
+  <div className="container">
+    <Message>Hello World</Message>
+    <Message>Goodbye World</Message>
+  </div>
+)
+
+ReactDOM.render(element, root)
+```
+
+</CodeSurfer>

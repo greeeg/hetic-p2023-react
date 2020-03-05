@@ -7,7 +7,8 @@ const defaultHeadingStyles = () => ({
   fontWeight: '500',
   maxWidth: '75vw',
   margin: 0,
-  marginBottom: 34
+  marginBottom: 34,
+  textAlign: 'center'
 });
 
 const responsiveFontSize = baseSize => {
@@ -58,6 +59,11 @@ export const theme = {
     strong: {
       fontWeight: '500',
       color: BLUE
+    },
+    CodeSurfer: {
+      subtitle: {
+        backgroundColor: 'red'
+      }
     }
   }
 };
