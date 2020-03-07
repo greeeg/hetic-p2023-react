@@ -81,3 +81,7 @@ Très concrètement, être capable de développer une application React.js fonct
 - Testing in React.js
 - Server-side rendering
 - Design systems & Librairies de composants
+
+## 🛫 Aller plus loins
+
+![React developer roadmap](https://github.com/greeeg/hetic-p2023-react/blob/master/assets/react-developer-roadmap.png)

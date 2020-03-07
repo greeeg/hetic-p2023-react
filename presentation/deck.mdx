@@ -71,11 +71,17 @@ Comment fonctionne l'affichage d'une page web ?
 
 ---
 
-import History from './static/history.png'
+import SSRDiagram from './static/ssr-diagram.png'
 
-<img src={History} style={{ width: '60vw', height: 'auto' }} />
+<img src={SSRDiagram} style={{ width: 'auto', height: '70vh' }} />
 
 <FootNote>📚 <a href="https://www.freecodecamp.org/news/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c/">Comment le web fonctionne ?</a></FootNote>
+
+---
+
+import ClientSideRenderingDiagram from './static/client-side-rendering-diagram.png'
+
+<img src={ClientSideRenderingDiagram} style={{ width: 'auto', height: '70vh' }} />
 
 ---
 
@@ -419,7 +425,8 @@ import ReactPlatforms from './static/react-platforms.png'
 
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
-  <script type="text/javascript">
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
     const root = document.getElementById('root')
     const element = <div className="container">Hello World</div>
     ReactDOM.render(element, root)
@@ -492,38 +499,42 @@ ReactDOM.render(element, root)
 
 ---
 
+## On definit un composant comme etant un element qui entre dans la composition de quelque chose 
+
+---
+
 
 <CodeSurfer theme={nightOwl}>
 
-```jsx
+```jsx subtitle="Imaginons que je souhaite afficher un message dans mon application"
 const root = document.getElementById('root')
 
 const element = (
   <div className="container">
-    <p>Hello World</p>
+    <p className="message">Hello World</p>
   </div>
 )
 
 ReactDOM.render(element, root)
 ```
 
-```jsx
+```jsx subtitle="Il se peut que je souhaite afficher plusieurs messages à plusieurs endroits"
 const root = document.getElementById('root')
 
 const element = (
   <div className="container">
-    <p>Hello World</p>
-    <p>Goodbye World</p>
+    <p className="message">Hello World</p>
+    <p className="message">Goodbye World</p>
   </div>
 )
 
 ReactDOM.render(element, root)
 ```
 
-```jsx
+```jsx subtitle="Je peux externaliser ce qui represente un message dans une variable"
 const root = document.getElementById('root')
 
-const message = <p>Hello World</p>
+const message = <p className="message">Hello World</p>
 
 const element = (
   <div className="container">
@@ -535,10 +546,10 @@ const element = (
 ReactDOM.render(element, root)
 ```
 
-```jsx
+```jsx subtitle="C'est un composant React.js"
 const root = document.getElementById('root')
 
-const message = (props) => <p>{props.children}</p>
+const message = (props) => <p className="message">{props.children}</p>
 
 const element = (
   <div className="container">
@@ -550,10 +561,10 @@ const element = (
 ReactDOM.render(element, root)
 ```
 
-```jsx
+```jsx subtitle="En JSX, je peux l'ecrir simplement comme ceci"
 const root = document.getElementById('root')
 
-const Message = (props) => <p>{props.children}</p>
+const Message = (props) => <p className="message">{props.children}</p>
 
 const element = (
   <div className="container">
@@ -563,6 +574,327 @@ const element = (
 )
 
 ReactDOM.render(element, root)
+```
+
+</CodeSurfer>
+
+---
+
+import LegoBricks from './static/lego-bricks.png'
+
+<img src={LegoBricks} style={{ width: '60vw', height: 'auto' }} />
+
+---
+
+import LegoComponentsGood from './static/lego-components-good.jpeg'
+import LegoComponentsBad from './static/lego-components-bad.jpeg'
+
+<div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+  <img style={{ width: 'auto', height: '50vh', marginRight: 40 }} src={LegoComponentsGood} alt=""/>
+  <img style={{ width: 'auto', height: '50vh' }} src={LegoComponentsBad} alt=""/>
+</div>
+
+---
+
+# Les props
+
+
+
+---
+
+# Le style en React.js
+
+---
+
+## Il existe trois manières de styliser des applications React
+
+---
+
+# En utilisant du CSS classique
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```html
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <style>
+    .box {
+      border: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .box--large {
+      width: 270px;
+      height: 270px;
+    }
+    .box--medium {
+      width: 180px;
+      height: 180px;
+    }
+    .box--small {
+      width: 90px;
+      height: 90px;
+    }
+  </style>
+  <script type="text/babel">
+    const Box = ({ size, children}) => {
+      const sizeClassName = `box--${size}`
+
+      return (
+        <div
+          className={`box ${sizeClassName}`}
+        >
+          {children}
+        </div>
+      )
+    }
+
+    const element = (
+      <div>
+        <Box size="small">
+          small lightblue box
+        </Box>
+        <Box size="medium">
+          medium pink box
+        </Box>
+        <Box size="large">
+          large orange box
+        </Box>
+      </div>
+    )
+
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+</body>
+```
+
+```html 6:26
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <style>
+    .box {
+      border: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .box--large {
+      width: 270px;
+      height: 270px;
+    }
+    .box--medium {
+      width: 180px;
+      height: 180px;
+    }
+    .box--small {
+      width: 90px;
+      height: 90px;
+    }
+  </style>
+  <script type="text/babel">
+    const Box = ({ size, children}) => {
+      const sizeClassName = `box--${size}`
+
+      return (
+        <div
+          className={`box ${sizeClassName}`}
+        >
+          {children}
+        </div>
+      )
+    }
+
+    const element = (
+      <div>
+        <Box size="small">
+          small lightblue box
+        </Box>
+        <Box size="medium">
+          medium pink box
+        </Box>
+        <Box size="large">
+          large orange box
+        </Box>
+      </div>
+    )
+
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+</body>
+```
+
+```html 40:52
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <style>
+    .box {
+      border: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .box--large {
+      width: 270px;
+      height: 270px;
+    }
+    .box--medium {
+      width: 180px;
+      height: 180px;
+    }
+    .box--small {
+      width: 90px;
+      height: 90px;
+    }
+  </style>
+  <script type="text/babel">
+    const Box = ({ size, children}) => {
+      const sizeClassName = `box--${size}`
+
+      return (
+        <div
+          className={`box ${sizeClassName}`}
+        >
+          {children}
+        </div>
+      )
+    }
+
+    const element = (
+      <div>
+        <Box size="small">
+          small lightblue box
+        </Box>
+        <Box size="medium">
+          medium pink box
+        </Box>
+        <Box size="large">
+          large orange box
+        </Box>
+      </div>
+    )
+
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+</body>
+```
+
+```html 28:38
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <style>
+    .box {
+      border: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .box--large {
+      width: 270px;
+      height: 270px;
+    }
+    .box--medium {
+      width: 180px;
+      height: 180px;
+    }
+    .box--small {
+      width: 90px;
+      height: 90px;
+    }
+  </style>
+  <script type="text/babel">
+    const Box = ({ size, children}) => {
+      const sizeClassName = `box--${size}`
+
+      return (
+        <div
+          className={`box ${sizeClassName}`}
+        >
+          {children}
+        </div>
+      )
+    }
+
+    const element = (
+      <div>
+        <Box size="small">
+          small lightblue box
+        </Box>
+        <Box size="medium">
+          medium pink box
+        </Box>
+        <Box size="large">
+          large orange box
+        </Box>
+      </div>
+    )
+
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+</body>
+```
+
+</CodeSurfer>
+
+---
+
+# En utilisant du style inline
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+const Header = () => (
+  <header style={{ marginTop: 20, fontSize: 17 }}>
+    <div style={{ paddingLeft: 10 }}>
+      <img src="/assets/logo.png" style={{ width: 100, height: 'auto' }} />
+    </div>
+  </header>
+);
+export default Header;
+```
+
+</CodeSurfer>
+
+---
+
+# En utilisant des librairies de **CSS-in-JS**
+(Nous reviendrons dessus plus tard)
+
+<FootNote>📚 <a href="https://2019.stateofcss.com/technologies/css-in-js/">State of CSS - 2019 Edition</a></FootNote>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+import React from 'react'
+import styled from '@emotion/styled'
+
+const Button = styled.button`
+  color: turquoise;
+`
+
+export default Button;
 ```
 
 </CodeSurfer>
