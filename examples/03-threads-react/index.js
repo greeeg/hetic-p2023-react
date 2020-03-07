@@ -31,13 +31,22 @@ const ThreadButton = ({ reversed, onClick, active }) => (
 const Thread = ({ count, author, authorPoints, title, description }) => {
   const [userVote, setUserVote] = useState(0);
 
+  const onButtonClick = action => {
+    // Reset user vote if action equals existing user vote
+    if (userVote === action) {
+      setUserVote(0);
+    } else {
+      setUserVote(action);
+    }
+  };
+
   return (
     <li className="thread">
       <div className="thread__actions">
         <ThreadButton
           reversed={true}
           active={userVote === 1}
-          onClick={() => (userVote === 1 ? setUserVote(0) : setUserVote(1))}
+          onClick={() => onButtonClick(1)}
         ></ThreadButton>
 
         <span className="thread__upvotes-count">{count + userVote}</span>
@@ -45,7 +54,7 @@ const Thread = ({ count, author, authorPoints, title, description }) => {
         <ThreadButton
           reversed={false}
           active={userVote === -1}
-          onClick={() => (userVote === -1 ? setUserVote(0) : setUserVote(-1))}
+          onClick={() => onButtonClick(-1)}
         ></ThreadButton>
       </div>
 
