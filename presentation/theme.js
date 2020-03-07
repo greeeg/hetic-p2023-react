@@ -43,10 +43,20 @@ export const theme = {
       marginTop: 20
     },
     li: {
-      listStyle: 'none',
       lineHeight: 1.75,
       fontWeight: '500',
       fontSize: responsiveFontSize(24)
+    },
+    ul: {
+      li: {
+        listStyle: 'none'
+      }
+    },
+    ol: {
+      li: {
+        listStyle: 'circle',
+        color: BLUE
+      }
     },
     a: {
       color: YELLOW,

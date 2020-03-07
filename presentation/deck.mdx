@@ -347,7 +347,9 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script type="text/javascript">
-    const root = document.getElementById('root')
+    function addHelloWorld() {
+      const root = document.getElementById('root')
+    }
   </script>
 </body>
 ```
@@ -359,11 +361,13 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script type="text/javascript">
-    const root = document.getElementById('root')
-    const element = React.createElement('div', {
-      className: 'container',
-      children: 'Hello World',
-    })
+    function addHelloWorld() {
+      const root = document.getElementById('root')
+      const element = React.createElement('div', {
+        className: 'container',
+        children: 'Hello World',
+      })
+    }
   </script>
 </body>
 ```
@@ -375,12 +379,14 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script type="text/javascript">
-    const root = document.getElementById('root')
-    const element = React.createElement('div', {
-      className: 'container',
-      children: 'Hello World',
-    })
-    ReactDOM.render(element, root)
+    function addHelloWorld() {
+      const root = document.getElementById('root')
+      const element = React.createElement('div', {
+        className: 'container',
+        children: 'Hello World',
+      })
+      ReactDOM.render(element, root)
+    }
   </script>
 </body>
 ```
@@ -409,12 +415,14 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script type="text/javascript">
-    const root = document.getElementById('root')
-    const element = React.createElement('div', {
-      className: 'container',
-      children: 'Hello World',
-    })
-    ReactDOM.render(element, root)
+    function addHelloWorld() {
+      const root = document.getElementById('root')
+      const element = React.createElement('div', {
+        className: 'container',
+        children: 'Hello World',
+      })
+      ReactDOM.render(element, root)
+    }
   </script>
 </body>
 ```
@@ -427,9 +435,11 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
-    const root = document.getElementById('root')
-    const element = <div className="container">Hello World</div>
-    ReactDOM.render(element, root)
+    function addHelloWorld() {
+      const root = document.getElementById('root')
+      const element = <div className="container">Hello World</div>
+      ReactDOM.render(element, root)
+    }
   </script>
 </body>
 ```
@@ -499,7 +509,7 @@ ReactDOM.render(element, root)
 
 ---
 
-## On definit un composant comme etant un element qui entre dans la composition de quelque chose 
+## On definit un composant comme etant un element/objet qui entre dans la composition de quelque chose 
 
 ---
 
@@ -546,7 +556,7 @@ const element = (
 ReactDOM.render(element, root)
 ```
 
-```jsx subtitle="C'est un composant React.js"
+```jsx subtitle="Et le transformer en un composant React.js"
 const root = document.getElementById('root')
 
 const message = (props) => <p className="message">{props.children}</p>
@@ -598,7 +608,94 @@ import LegoComponentsBad from './static/lego-components-bad.jpeg'
 
 # Les props
 
+---
 
+## Les props sont des paramètres/arguments passés aux composants React.js pour :
+
+<Steps>
+
+1. afficher quelque chose de dynamique
+2. pour faire du rendu conditionnel
+3. pour passer ce même parametre a un composant enfant
+
+</Steps>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="Sans props, impossible de rendre dynamique ce que mon composant affiche"
+const Profile = () => (
+  <section>
+    <h3>John Doe</h3>
+    <p>Software Engineer</p>
+  </section>
+)
+
+const App = () => (
+  <Profile />
+)
+```
+
+```jsx subtitle="Ici, je passe deux props qui sont utiliser dans le JSX"
+const Profile = (props) => (
+  <section>
+    <h3>{props.name}</h3>
+    <p>{props.position}</p>
+  </section>
+)
+
+const App = () => (
+  <Profile name="John Doe" position="Software Engineer" />
+)
+```
+
+```jsx subtitle="On peut simplifer l'écriture en destructurant l'objet props"
+const Profile = ({ name, position }) => (
+  <section>
+    <h3>{name}</h3>
+    <p>{position}</p>
+  </section>
+)
+
+const App = () => (
+  <Profile name="John Doe" position="Software Engineer" />
+)
+```
+
+```jsx subtitle="On peut aussi s'assurer que les props respectent certaines règles"
+import PropTypes from 'prop-types'
+
+const Profile = ({ name, position }) => (
+  <section>
+    <h3>{name}</h3>
+    <p>{position}</p>
+  </section>
+)
+
+Profile.propTypes = {
+  name: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired
+}
+
+const App = () => (
+  <Profile name="John Doe" position="Software Engineer" />
+)
+```
+
+</CodeSurfer>
+
+---
+
+# ⚡️En résumé
+
+<Steps>
+
+- **React.js** est une librairie pour construire des interfaces
+- créées à partir de **briques réutilisables** (components)
+- qui utilise une extension syntaxique appelée le **JSX**
+
+</Steps>
 
 ---
 
@@ -895,6 +992,121 @@ const Button = styled.button`
 `
 
 export default Button;
+```
+
+</CodeSurfer>
+
+---
+
+# Gestion des évènements
+
+---
+
+## De manière générale, on utilise le Javascript pour dynamiser des pages web :
+
+- Pour créer des interactions (Click, Keydown, etc)
+- Pour créer des animations
+- Et bien plus (AJAX, WebGL, Web APIs, etc.)
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+const input = document.querySelector('input')
+```
+
+```jsx
+const input = document.querySelector('input')
+
+input.addEventListener('keyup', e => {
+  
+})
+```
+
+```jsx
+const input = document.querySelector('input')
+
+input.addEventListener('keyup', e => {
+  const text = e.target.value
+
+  if (text.length > 10) {
+    alert('This is way too long')
+  } else {
+    document.title = `(${text}) Learning Javascript`
+  }
+})
+```
+
+```jsx
+const input = document.querySelector('input')
+
+input.addEventListener('keyup', e => {
+  const text = e.target.value
+
+  if (text.length > 10) {
+    alert('This is way too long')
+  } else {
+    document.title = `(${text}) Learning Javascript`
+  }
+})
+```
+
+</CodeSurfer>
+
+---
+
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+const TextInput = () => {
+  return (
+    <input type="text" />
+  )
+}
+
+const App = () => (
+  <TextInput />
+)
+```
+
+```jsx
+const TextInput = () => {
+  const onChange = () => {
+
+  }
+
+  return (
+    <input type="text" onKeyUp={onChange} />
+  )
+}
+
+const App = () => (
+  <TextInput />
+)
+```
+
+```jsx
+const TextInput = () => {
+  const onChange = e => {
+    const text = e.target.value
+
+    if (text.length > 10) {
+      alert('This is way too long')
+    } else {
+      document.title = `(${text}) Learning Javascript`
+    }
+  }
+
+  return (
+    <input type="text" onKeyUp={onChange} />
+  )
+}
+
+const App = () => (
+  <TextInput />
+)
 ```
 
 </CodeSurfer>
