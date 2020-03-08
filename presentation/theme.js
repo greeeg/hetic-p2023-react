@@ -36,18 +36,16 @@ export const theme = {
       marginBottom: 20,
       fontSize: responsiveFontSize(20)
     },
-    ul: {
-      paddingLeft: 0,
-      margin: 0,
-      marginBottom: 20,
-      marginTop: 20
-    },
     li: {
       lineHeight: 1.75,
       fontWeight: '500',
       fontSize: responsiveFontSize(24)
     },
     ul: {
+      paddingLeft: 0,
+      padding: 0,
+      marginBottom: 20,
+      marginTop: 20,
       li: {
         listStyle: 'none'
       }

@@ -129,6 +129,7 @@ import Twitter from './static/twitter.png'
 
 - Jquery (2006)
 - Angular.js (2009)
+- Backbone.js (2010)
 - Ember.js (2011)
 - React.js (2013)
 - Vue.js (2014)
@@ -399,8 +400,8 @@ import ReactPlatforms from './static/react-platforms.png'
 
 <Steps>
 
-- **React**: La logique pour construire des interfaces
-- **React DOM**: Les logiques d'interaction avec le DOM
+- **React**: Les fonctionnalités permettant de définir des composants React
+- **React DOM**: Un moteur de rendu pour le web
 
 </Steps>
 
@@ -459,6 +460,10 @@ import ReactPlatforms from './static/react-platforms.png'
 </Steps>
 
 <FootNote>📚 <a href="https://jasonformat.com/wtf-is-jsx/">WTF is JSX?</a></FootNote>
+
+---
+
+## ⚠️ Pour utiliser du **JSX**, on doit avoir Babel configuré sur son projet
 
 ---
 
@@ -696,6 +701,18 @@ const App = () => (
 - qui utilise une extension syntaxique appelée le **JSX**
 
 </Steps>
+
+---
+
+# ⚡️En résumé
+
+<Steps>
+
+- elle s'appuie sur 2 packages (**`react`** & **`react-dom`**)
+- mais peut aussi être utilisée ailleurs (native, VR, etc.)
+
+</Steps>
+
 
 ---
 
@@ -998,6 +1015,10 @@ export default Button;
 
 ---
 
+# 👨‍🔬 Construire sa première interface React.js
+
+---
+
 # Gestion des évènements
 
 ---
@@ -1012,11 +1033,11 @@ export default Button;
 
 <CodeSurfer theme={nightOwl}>
 
-```jsx
+```jsx subtitle="On récupère l'élément sur lequel on souhaite greffer l'évenement"
 const input = document.querySelector('input')
 ```
 
-```jsx
+```jsx subtitle="On ajoute un écouteur d'évenement sur cet élément"
 const input = document.querySelector('input')
 
 input.addEventListener('keyup', e => {
@@ -1024,7 +1045,7 @@ input.addEventListener('keyup', e => {
 })
 ```
 
-```jsx
+```jsx subtitle="On y ajoute la logique voulue"
 const input = document.querySelector('input')
 
 input.addEventListener('keyup', e => {
@@ -1059,7 +1080,7 @@ input.addEventListener('keyup', e => {
 
 <CodeSurfer theme={nightOwl}>
 
-```jsx
+```jsx subtitle="On crée notre composant"
 const TextInput = () => {
   return (
     <input type="text" />
@@ -1071,10 +1092,32 @@ const App = () => (
 )
 ```
 
-```jsx
+```jsx subtitle="On ajoute un écouteur d'évenement sur l'élément du DOM qui nous intéresse"
 const TextInput = () => {
   const onChange = () => {
 
+  }
+
+  return (
+    <input type="text" onKeyUp={onChange} />
+  )
+}
+
+const App = () => (
+  <TextInput />
+)
+```
+
+```jsx subtitle="On y ajoute la logique voulue"
+const TextInput = () => {
+  const onChange = e => {
+    const text = e.target.value
+
+    if (text.length > 10) {
+      alert('This is way too long')
+    } else {
+      document.title = `(${text}) Learning Javascript`
+    }
   }
 
   return (
@@ -1110,3 +1153,7 @@ const App = () => (
 ```
 
 </CodeSurfer>
+
+---
+
+
