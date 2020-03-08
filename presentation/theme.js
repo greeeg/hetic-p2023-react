@@ -8,7 +8,8 @@ const defaultHeadingStyles = () => ({
   maxWidth: '75vw',
   margin: 0,
   marginBottom: 34,
-  textAlign: 'center'
+  textAlign: 'center',
+  lineHeight: 1.4
 });
 
 const responsiveFontSize = baseSize => {
@@ -34,7 +35,10 @@ export const theme = {
       fontWeight: '500',
       margin: 0,
       marginBottom: 20,
-      fontSize: responsiveFontSize(20)
+      fontSize: responsiveFontSize(20),
+      textAlign: 'center',
+      maxWidth: '60vw',
+      lineHeight: 1.6
     },
     li: {
       lineHeight: 1.75,

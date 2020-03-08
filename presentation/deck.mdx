@@ -276,7 +276,7 @@ import ReactPlatforms from './static/react-platforms.png'
 
 <CodeSurfer theme={nightOwl}>
 
-```html subtitle="On recupere une reference de notre parent"
+```html subtitle="On récupère une référence de notre parent"
 <body>
   <div id="root"></div>
 
@@ -288,7 +288,7 @@ import ReactPlatforms from './static/react-platforms.png'
 </body>
 ```
 
-```html subtitle="On cree un element"
+```html subtitle="On crée un élément"
 <body>
   <div id="root"></div>
 
@@ -341,7 +341,7 @@ import ReactPlatforms from './static/react-platforms.png'
 </body>
 ```
 
-```html subtitle="On recupere une reference de notre parent"
+```html subtitle="On récupère une référence de notre parent"
 <body>
   <div id="root"></div>
 
@@ -355,7 +355,7 @@ import ReactPlatforms from './static/react-platforms.png'
 </body>
 ```
 
-```html subtitle="On cree notre element"
+```html subtitle="On crée notre élément"
 <body>
   <div id="root"></div>
 
@@ -514,7 +514,7 @@ ReactDOM.render(element, root)
 
 ---
 
-## On definit un composant comme etant un element/objet qui entre dans la composition de quelque chose 
+## On définit un composant comme étant un élément/objet qui entre dans la composition de quelque chose 
 
 ---
 
@@ -546,7 +546,7 @@ const element = (
 ReactDOM.render(element, root)
 ```
 
-```jsx subtitle="Je peux externaliser ce qui represente un message dans une variable"
+```jsx subtitle="Je peux externaliser ce qui représente un message dans une variable"
 const root = document.getElementById('root')
 
 const message = <p className="message">Hello World</p>
@@ -576,7 +576,7 @@ const element = (
 ReactDOM.render(element, root)
 ```
 
-```jsx subtitle="En JSX, je peux l'ecrir simplement comme ceci"
+```jsx subtitle="En JSX, je peux l'écrir simplement comme ceci"
 const root = document.getElementById('root')
 
 const Message = (props) => <p className="message">{props.children}</p>
@@ -595,22 +595,6 @@ ReactDOM.render(element, root)
 
 ---
 
-import LegoBricks from './static/lego-bricks.png'
-
-<img src={LegoBricks} style={{ width: '60vw', height: 'auto' }} />
-
----
-
-import LegoComponentsGood from './static/lego-components-good.jpeg'
-import LegoComponentsBad from './static/lego-components-bad.jpeg'
-
-<div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-  <img style={{ width: 'auto', height: '50vh', marginRight: 40 }} src={LegoComponentsGood} alt=""/>
-  <img style={{ width: 'auto', height: '50vh' }} src={LegoComponentsBad} alt=""/>
-</div>
-
----
-
 # Les props
 
 ---
@@ -621,7 +605,7 @@ import LegoComponentsBad from './static/lego-components-bad.jpeg'
 
 1. afficher quelque chose de dynamique
 2. pour faire du rendu conditionnel
-3. pour passer ce même parametre a un composant enfant
+3. pour passer ce même paramètre a un composant enfant
 
 </Steps>
 
@@ -1017,6 +1001,36 @@ export default Button;
 
 # 👨‍🔬 Construire sa première interface React.js
 
+Nous allons réaliser un clone de Slack [à partir d'une intégration front](https://github.com/greeeg/hetic-p2023-react/blob/master/resources/slack/index.html)
+
+---
+
+import LegoBricks from './static/lego-bricks.png'
+
+<img src={LegoBricks} style={{ width: '60vw', height: 'auto' }} />
+
+---
+
+import LegoComponentsGood from './static/lego-components-good.jpeg'
+import LegoComponentsBad from './static/lego-components-bad.jpeg'
+
+<div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+  <img style={{ width: 'auto', height: '50vh', marginRight: 40 }} src={LegoComponentsGood} alt=""/>
+  <img style={{ width: 'auto', height: '50vh' }} src={LegoComponentsBad} alt=""/>
+</div>
+
+---
+
+# Construire une interface à partir de composants réutilisables
+
+<Steps>
+
+- Avoir de petites entités autonomes
+- Les faire évoluer de maniere isolée
+- Travailler plus efficacement à plusieurs
+
+</Steps>
+
 ---
 
 # Gestion des évènements
@@ -1092,7 +1106,7 @@ const App = () => (
 )
 ```
 
-```jsx subtitle="On ajoute un écouteur d'évenement sur l'élément du DOM qui nous intéresse"
+```jsx subtitle="On ajoute un écouteur d'évènement sur l'élément du DOM qui nous intéresse"
 const TextInput = () => {
   const onChange = () => {
 
@@ -1156,4 +1170,459 @@ const App = () => (
 
 ---
 
+# Le state
 
+---
+
+### Le state est similaire aux **props**. Il permet d'apporter une notion de dynamisme au composant.
+
+<Steps>
+
+- Privé
+- Controllé par le composant
+
+</Steps>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+import React from 'react'
+
+const Counter = () => {
+  return (
+    <button>
+      Clicked: 0
+    </button>
+  )
+}
+```
+
+```jsx
+import React from 'react'
+
+const Counter = () => {
+  return (
+    <button onClick={() => console.log('clicked')}>
+      Clicked: 0
+    </button>
+  )
+}
+```
+
+```jsx
+import React, { useState } from 'react'
+
+const Counter = () => {
+  const [count, setCount] = useState(0)
+
+  return (
+    <button onClick={() => console.log('clicked')}>
+      Clicked: 0
+    </button>
+  )
+}
+```
+
+```jsx
+import React, { useState } from 'react'
+
+const Counter = () => {
+  const [count, setCount] = useState(0)
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Clicked: {count}
+    </button>
+  )
+}
+```
+
+```jsx
+import React, { useState } from 'react'
+
+const Counter = () => {
+  const [count, setCount] = useState(0)
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Clicked: {count}
+    </button>
+  )
+}
+```
+
+</CodeSurfer>
+
+---
+
+# 🤔
+
+<Steps>
+
+- Pourquoi ne pas utiliser simplement une variable ?
+- Qu'est-ce que veut dire **useState** ?
+
+</Steps>
+
+---
+
+## **useState** est un mécanisme propre à React qui permet de :
+
+<Steps>
+
+- Affecter une nouvelle valeur à la variable
+- Prévenir React de ce changement
+
+</Steps>
+
+---
+
+# On appelle cela un **hook**
+
+Les hooks ont été introduit dans React à partir de la version **16.8**. Ils permettent d'utiliser des fonctionnalités de React sans écrire de **Class**.
+
+<FootNote>📚 <a href="https://medium.com/better-programming/react-hooks-vs-classes-add2676a32f2">React: Hooks vs Classes?</a></FootNote>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="Un composant Counter écrit avec un hook ressemble à cela"
+import React, { useState } from 'react'
+
+const Counter = () => {
+  const [count, setCount] = useState(0)
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Clicked: {count}
+    </button>
+  )
+}
+```
+
+```jsx subtitle="Mais on peut aussi l'écrire de cette manière"
+import React, { Component } from 'react'
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      count: 0
+    };
+  }
+
+  render() {
+    return (
+      <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+        Clicked: {count}
+      </button>
+    )
+  }
+}
+```
+
+</CodeSurfer>
+
+---
+
+# 👨‍🔬 Construire sa première interface interactive avec React.js
+
+Nous allons réaliser [l'exemple des Threads](https://hetic-p2023-react-examples.netlify.com/01-threads/index.html) avec React.js [à partir de cette source](https://github.com/greeeg/hetic-p2023-react/blob/master/resources/threads/index.html)
+
+---
+
+# Le cycle de vie des composants
+
+---
+
+## Un composant React.js peut être mis à jour :
+
+<Steps>
+
+1. lorsqu'une de ses **props** change 
+2. lorsque son **state** change
+
+</Steps>
+
+---
+
+## On peut greffer un **side-effect** à ces changements en utilisant le hook **useEffect**
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+import React, { useState } from 'react'
+
+const Counter = () => {
+  const [count, setCount] = useState(0)
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Clicked: {count}
+    </button>
+  )
+}
+```
+
+```jsx
+import React, { useState, useEffect } from 'react'
+
+const Counter = () => {
+  const [count, setCount] = useState(0)
+
+  // Called each time component updates
+  // and on initialization
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  })
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Clicked: {count}
+    </button>
+  )
+}
+```
+
+</CodeSurfer>
+
+---
+
+# On peut préciser une dépendance au **useEffect**
+
+De cette manière, la fonction qu'il contient ne sera appelée que lorsque l'une de ces dépendances change
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+import React, { useState } from 'react'
+
+const Counter = () => {
+  const [integers, setIntegers] = useState(0)
+  const [decimals, setDecimals] = useState(0)
+
+  return (
+    <div>
+      <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
+      <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
+
+      <p>{integers},{decimals}</p>
+    </div>
+  )
+}
+```
+
+```jsx
+import React, { useState, useEffect } from 'react'
+
+const Counter = () => {
+  const [integers, setIntegers] = useState(0)
+  const [decimals, setDecimals] = useState(0)
+
+  useEffect(() => {
+    console.log('counter updated')
+  })
+
+  return (
+    <div>
+      <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
+      <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
+
+      <p>{integers},{decimals}</p>
+    </div>
+  )
+}
+```
+
+```jsx
+import React, { useState, useEffect } from 'react'
+
+const Counter = () => {
+  const [integers, setIntegers] = useState(0)
+  const [decimals, setDecimals] = useState(0)
+
+  useEffect(() => {
+    console.log('integers updated')
+  }, [integers])
+
+  return (
+    <div>
+      <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
+      <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
+
+      <p>{integers},{decimals}</p>
+    </div>
+  )
+}
+```
+
+</CodeSurfer>
+
+---
+
+## On peut également préciser une fonction dite de **cleanup** à appeler lorsque le composant est démonté
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+import React, { useState, useEffect } from 'react'
+
+const Counter = () => {
+  const [integers, setIntegers] = useState(0)
+  const [decimals, setDecimals] = useState(0)
+
+  useEffect(() => {
+    console.log('integers updated')
+  }, [integers])
+
+  return (
+    <div>
+      <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
+      <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
+
+      <p>{integers},{decimals}</p>
+    </div>
+  )
+}
+```
+
+```jsx
+import React, { useState, useEffect } from 'react'
+
+const Counter = () => {
+  const [integers, setIntegers] = useState(0)
+  const [decimals, setDecimals] = useState(0)
+
+  useEffect(() => {
+    console.log('counter mounted')
+
+    return () => {
+      console.log('counter unmounted')
+    }
+  }, [])
+
+  return (
+    <div>
+      <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
+      <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
+
+      <p>{integers},{decimals}</p>
+    </div>
+  )
+}
+```
+
+</CodeSurfer>
+
+---
+
+# Quelques règles liées aux hooks
+
+<Steps>
+
+- Only Call Hooks **at the Top Level**
+- Only Call Hooks **from React Functions**
+
+</Steps>
+
+---
+
+# Les listes
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(number => number * 2);
+```
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(number => number * 2);
+
+// [2, 4, 6, 8, 10]
+```
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(number => number * 2);
+
+// [2, 4, 6, 8, 10]
+
+const NamesList = () => {
+  const names = ['Robert', 'Gérard', 'Michel'];
+  return (
+    <ul>
+      {names.map((name, index) => {
+        return <li key={index}>{name}</li>;
+      })}
+    </ul>
+  );
+};
+```
+
+</CodeSurfer>
+
+---
+
+# Les champs de formulaire
+
+---
+
+# Controlled component
+
+<Steps>
+
+- Certains éléments du DOM maintiennent leur état dans une de leur propriété
+- C'est le cas des **Input** dans la propriété **value**
+- On parle de **controlled component** lorsque leur valeur est maintenue dans le state
+
+</Steps>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+import React from 'react'
+
+const TextInput = () => {
+  const value = 'Greg'
+
+  return (
+    <input type="text" value={value} />
+  )
+}
+```
+
+```jsx
+import React, { useState } from 'react'
+
+const TextInput = () => {
+  const [value, setValue] = useState('Greg')
+
+  return (
+    <input type="text" value={value} onChange={e => setValue(e.target.value)} />
+  )
+}
+```
+
+</CodeSurfer>
+
+---
+
+# 👨‍🔬 Construire une TODO app
+
+Nous allons réaliser une [TODO app](https://hetic-p2023-react-examples.netlify.com/05-todo-app/index.html) comme celle-ci [à partir d'une intégration front](https://github.com/greeeg/hetic-p2023-react/blob/master/resources/todo-app/index.html)
