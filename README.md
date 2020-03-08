@@ -29,11 +29,10 @@ Très concrètement, être capable de développer une application React.js fonct
 
 ### Le contexte
 
-- Les interfaces homme/machine en perspective
-- Et le web dans tout ça ? (Comment on faisait des sites avant/apres)
-- Les problemes aujourd'hui
+- Comment s'affiche une page web ?
+- Évolution du développement front-end
 
-### React : une réponse à ces problématiques
+### React
 
 - Qu'est-ce que React.js
 - Les concepts derrière React
@@ -45,13 +44,13 @@ Très concrètement, être capable de développer une application React.js fonct
 
 - Hello World (Vanilla JS vs React)
 - Le JSX
-- Un premier composant React.js
+- Les composants
 - Les Props
-- Rendu conditionnel
+- Le style
 - Gestion des évènments
-- State & Cycle de vie des composants
-- Styliser des composants
-- Listes
+- Le state
+- Le cycle de vie
+- Les listes
 - Champs & Formulaires
 
 ### Mise en perspective de React.js
@@ -75,14 +74,6 @@ Très concrètement, être capable de développer une application React.js fonct
 - Thinking in React
 - React.js developer roadmap
 - The React community
-
-### Aller encore plus loin
-
-- Accessibilite
-- Typechecking (PropTypes, Typescript, ReasonML)
-- Testing in React.js
-- Server-side rendering
-- Design systems & Librairies de composants
 
 ## 🛫 Aller plus loins
 
