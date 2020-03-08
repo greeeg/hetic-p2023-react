@@ -21,10 +21,9 @@ Très concrètement, être capable de développer une application React.js fonct
 
 - 👨‍🏫 **La présentation**: [`Site web`](https://hetic-p2023-react.netlify.com/) [`PDF`](https://github.com/greeeg/hetic-p2023-react/raw/master/hetic-p2023-react.pdf)
 - 🧰 **Les exemples**: [`Site web`](https://hetic-p2023-react-examples.netlify.com/)
-- 🌍 **Wikily**: [`Site web`](https://wikily.netlify.com/) [`GitHub`](https://github.com/greeeg/wikily)
 
-- 👩‍🔧 **Sandbox G1**: [`Codesandbox.io`](https://codesandbox.io/s/hetic-p2023-g1-yy6k8)
-- 👩‍🔧 **Sandbox G2**: [`Codesandbox.io`](https://codesandbox.io/s/hetic-p2023-g2-pqsd7)
+* 👩‍🔧 **Sandbox G1**: [`Codesandbox.io`](https://codesandbox.io/s/hetic-p2023-g1-yy6k8)
+* 👩‍🔧 **Sandbox G2**: [`Codesandbox.io`](https://codesandbox.io/s/hetic-p2023-g2-pqsd7)
 
 ## 🏁 Le plan
 
