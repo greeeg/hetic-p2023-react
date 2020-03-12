@@ -455,11 +455,21 @@ import ReactPlatforms from './static/react-platforms.png'
 
 - Une extension syntaxique au Javascript
 - Transpilé par [Babel](https://babeljs.io/en/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBApgGzgWzmWBeGAeAJgSwDcZgEBDCCAOTNQwCJR0z8w4AnegPgAlEEQMAOoh2CXNgD0BQlyA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.8.7&externalPlugins=) en Javascript
-- Permet de définir des composants React simplement
 
 </Steps>
 
 <FootNote>📚 <a href="https://jasonformat.com/wtf-is-jsx/">WTF is JSX?</a></FootNote>
+
+---
+
+# Pourquoi le JSX ?
+
+<Steps>
+
+- Permet de définir des arbres de composants simplement
+- S'appuie sur une syntaxe familière (le HTML)
+
+</Steps>
 
 ---
 
@@ -469,41 +479,62 @@ import ReactPlatforms from './static/react-platforms.png'
 
 <CodeSurfer theme={nightOwl}>
 
-```jsx subtitle="Mais du coup si c'est du Javascript 🤯"
-const root = document.getElementById('root')
-
-const element = <div className="container">Hello World</div>
-ReactDOM.render(element, root)
+```jsx subtitle="Si la variable ne contient qu'un élément, on l'écrit comme ça"
+const message = <p>Hello World</p>
+ReactDOM.render(message, document.getElementById('root'))
 ```
 
-```jsx
-const root = document.getElementById('root')
-
-const text = "Hello World"
-const element = <div className="container">{text}</div>
-ReactDOM.render(element, root)
+```jsx subtitle="Si la variable contient des éléments imbriqués, on l'écrit comme ça"
+const message = (
+  <div>
+    <p>Hello World</p>
+  </div>
+)
+ReactDOM.render(message, document.getElementById('root'))
 ```
 
-```jsx
-const root = document.getElementById('root')
+</CodeSurfer>
 
-const text = "Hello World"
-const element = <div className="container">{text.toUpperCase()}</div>
-ReactDOM.render(element, root)
+---
+
+## Embedded expressions
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="En Javascript, on peut utiliser les template strings pour intégrer des expressions dans une chaîne de caractères"
+const price = 12.5
+const tva = 19.6
+const total = price + (price * (tva / 100))
+
+const message = `The price with included taxes is ${total} euros.`
 ```
 
-```jsx
-const root = document.getElementById('root')
+```jsx subtitle="On peut même directement appeler des fonctions"
+const price = 12.5
+const tva = 19.6
+const total = price + (price * (tva / 100))
 
-const text = "Hello World"
-const attributes = {
-  className: "container",
-  style: {
-    color: "red"
-  }
-}
-const element = <div {...attributes}>{text.toUpperCase()}</div>
-ReactDOM.render(element, root)
+const message = `The price with included taxes is ${parseInt(total)} euros.`
+```
+
+```jsx subtitle="En JSX, on peut faire la même chose en omettant le $"
+const price = 12.5
+const tva = 19.6
+const total = price + (price * (tva / 100))
+
+const message = <p>The price with included taxes is {total} euros.</p>
+ReactDOM.render(message, document.getElementById('root'))
+```
+
+```jsx subtitle="Et aussi appeler des fonctions dans le JSX"
+const price = 12.5
+const tva = 19.6
+const total = price + (price * (tva / 100))
+
+const message = <p>The price with included taxes is {parseInt(total)} euros.</p>
+ReactDOM.render(message, document.getElementById('root'))
 ```
 
 </CodeSurfer>
@@ -518,77 +549,158 @@ ReactDOM.render(element, root)
 
 ---
 
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="Imaginons une application de cartes d'anniversaire"
+const julia = 'Julia Robert'
+
+const wishMessageJulia = `HAPPY BIRTHDAY ${julia.toUpperCase()}!`
+```
+
+```jsx subtitle="Dans laquelle on génère des messages d'anniversaire"
+const julia = 'Julia Robert'
+const thomas = 'Thomas René'
+
+const wishMessageJulia = `HAPPY BIRTHDAY ${julia.toUpperCase()}!`
+const wishMessageThomas = `HAPPY BIRTHDAY ${thomas.toUpperCase()}!`
+```
+
+```jsx subtitle="Pour simplifier la tâche, on crée une fonction qui génère les messages"
+const julia = 'Julia Robert'
+const thomas = 'Thomas René'
+
+function wishHappyBirthday(name) {
+  return `HAPPY BIRTHDAY ${name.toUpperCase()}!`
+}
+
+const wishMessageJulia = wishHappyBirthday(julia)
+const wishMessageThomas = wishHappyBirthday(thomas)
+```
+
+</CodeSurfer>
+
+---
 
 <CodeSurfer theme={nightOwl}>
 
-```jsx subtitle="Imaginons que je souhaite afficher un message dans mon application"
-const root = document.getElementById('root')
+```jsx subtitle="Si on souhaitait réaliser cette application avec React.js, on créerait sûrement les éléments suivants"
+const julia = 'Julia Robert'
+const thomas = 'Thomas René'
 
-const element = (
-  <div className="container">
-    <p className="message">Hello World</p>
+const wishMessageJulia = <p>HAPPY BIRTHDAY {julia.toUpperCase()}!</p>
+const wishMessageThomas = <p>HAPPY BIRTHDAY {thomas.toUpperCase()}!</p>
+
+const app = (
+  <div>
+    {wishMessageJulia}
+    {wishMessageThomas}
   </div>
 )
-
-ReactDOM.render(element, root)
 ```
 
-```jsx subtitle="Il se peut que je souhaite afficher plusieurs messages à plusieurs endroits"
-const root = document.getElementById('root')
+```jsx subtitle="On peut, comme en Javascript, créer une fonction qui génère ces messages"
+const julia = 'Julia Robert'
+const thomas = 'Thomas René'
 
-const element = (
-  <div className="container">
-    <p className="message">Hello World</p>
-    <p className="message">Goodbye World</p>
-  </div>
-)
-
-ReactDOM.render(element, root)
+function WishHappyBirthday() {
+  return (
+    <p>HAPPY BIRTHDAY!</p>
+  )
+}
 ```
 
-```jsx subtitle="Je peux externaliser ce qui représente un message dans une variable"
-const root = document.getElementById('root')
+</CodeSurfer>
 
-const message = <p className="message">Hello World</p>
+---
 
-const element = (
-  <div className="container">
-    {message}
-    {message}
+## Les composants React.js
+
+<Steps>
+
+- Des fonctions qui retournent des éléments React.js
+- Ou d'autres composants (fonctions) qu'on a créé
+- Des briques d'interface réutilisables
+
+</Steps>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="⛔️ Pour utiliser ces composants, on ne les appelle pas comme des fonctions Javascript"
+function WishHappyBirthday() {
+  return (
+    <p>HAPPY BIRTHDAY!</p>
+  )
+}
+
+const app = (
+  <div>
+    {WishHappyBirthday()}
+    {WishHappyBirthday()}
   </div>
 )
-
-ReactDOM.render(element, root)
 ```
 
-```jsx subtitle="Et le transformer en un composant React.js"
-const root = document.getElementById('root')
+```jsx subtitle="✅ Mais comme ceci"
+function WishHappyBirthday() {
+  return (
+    <p>HAPPY BIRTHDAY!</p>
+  )
+}
 
-const message = (props) => <p className="message">{props.children}</p>
-
-const element = (
-  <div className="container">
-    {React.createElement(message, { children: "Hello World" })}
-    {React.createElement(message, { children: "Goodbye World" })}
+const app = (
+  <div>
+    <WishHappyBirthday />
+    <WishHappyBirthday />
   </div>
 )
-
-ReactDOM.render(element, root)
 ```
 
-```jsx subtitle="En JSX, je peux l'écrir simplement comme ceci"
-const root = document.getElementById('root')
+```jsx subtitle="Cela permet de les différencier des éléments natifs en JSX"
+function WishHappyBirthday() {
+  return (
+    <p>HAPPY BIRTHDAY!</p>
+  )
+}
 
-const Message = (props) => <p className="message">{props.children}</p>
-
-const element = (
-  <div className="container">
-    <Message>Hello World</Message>
-    <Message>Goodbye World</Message>
+const app = (
+  <div>
+    <WishHappyBirthday />
+    <a href="/index.html">Link to home</a>
+    <WishHappyBirthday />
   </div>
 )
+```
 
-ReactDOM.render(element, root)
+```jsx subtitle="On peut aussi les écrire comme ceci"
+const WishHappyBirthday = () => {
+  return (
+    <p>HAPPY BIRTHDAY!</p>
+  )
+}
+
+const app = (
+  <div>
+    <WishHappyBirthday />
+    <a href="/index.html">Link to home</a>
+    <WishHappyBirthday />
+  </div>
+)
+```
+
+```jsx subtitle="On encore comme ceci"
+const WishHappyBirthday = () => (
+    <p>HAPPY BIRTHDAY!</p>
+)
+
+const app = (
+  <div>
+    <WishHappyBirthday />
+    <a href="/index.html">Link to home</a>
+    <WishHappyBirthday />
+  </div>
+)
 ```
 
 </CodeSurfer>
@@ -614,61 +726,38 @@ ReactDOM.render(element, root)
 <CodeSurfer theme={nightOwl}>
 
 ```jsx subtitle="Sans props, impossible de rendre dynamique ce que mon composant affiche"
-const Profile = () => (
-  <section>
-    <h3>John Doe</h3>
-    <p>Software Engineer</p>
-  </section>
-)
+function WishHappyBirthday() {
+  return (
+    <p>HAPPY BIRTHDAY!</p>
+  )
+}
 
 const App = () => (
-  <Profile />
+  <WishHappyBirthday />
 )
 ```
 
-```jsx subtitle="Ici, je passe deux props qui sont utiliser dans le JSX"
-const Profile = (props) => (
-  <section>
-    <h3>{props.name}</h3>
-    <p>{props.position}</p>
-  </section>
-)
+```jsx subtitle="Ici, je passe une prop qui est utilisée dans le JSX"
+function WishHappyBirthday(props) {
+  return (
+    <p>HAPPY BIRTHDAY {props.name.toUpperCase()}!</p>
+  )
+}
 
 const App = () => (
-  <Profile name="John Doe" position="Software Engineer" />
+  <WishHappyBirthday name="Julia" />
 )
 ```
 
 ```jsx subtitle="On peut simplifer l'écriture en destructurant l'objet props"
-const Profile = ({ name, position }) => (
-  <section>
-    <h3>{name}</h3>
-    <p>{position}</p>
-  </section>
-)
-
-const App = () => (
-  <Profile name="John Doe" position="Software Engineer" />
-)
-```
-
-```jsx subtitle="On peut aussi s'assurer que les props respectent certaines règles"
-import PropTypes from 'prop-types'
-
-const Profile = ({ name, position }) => (
-  <section>
-    <h3>{name}</h3>
-    <p>{position}</p>
-  </section>
-)
-
-Profile.propTypes = {
-  name: PropTypes.string.isRequired,
-  position: PropTypes.string.isRequired
+function WishHappyBirthday({ name }) {
+  return (
+    <p>HAPPY BIRTHDAY {name.toUpperCase()}!</p>
+  )
 }
 
 const App = () => (
-  <Profile name="John Doe" position="Software Engineer" />
+  <WishHappyBirthday name="Julia" />
 )
 ```
 
@@ -697,6 +786,29 @@ const App = () => (
 
 </Steps>
 
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="Attention à ne pas confondre composants et éléments"
+const element = <a href="https://google.com" title="Google">Search on Google</a>
+
+function Component() {
+  return (
+    <a href="https://google.com" title="Google">Search on Google</a>
+  )
+}
+
+const App = () => (
+  <div>
+    {element}
+    <Component />
+  </div>
+)
+```
+
+</CodeSurfer>
 
 ---
 
@@ -732,22 +844,12 @@ const App = () => (
       width: 270px;
       height: 270px;
     }
-    .box--medium {
-      width: 180px;
-      height: 180px;
-    }
-    .box--small {
-      width: 90px;
-      height: 90px;
-    }
   </style>
   <script type="text/babel">
-    const Box = ({ size, children}) => {
-      const sizeClassName = `box--${size}`
-
+    const Box = ({ children }) => {
       return (
         <div
-          className={`box ${sizeClassName}`}
+          className="box box--large"
         >
           {children}
         </div>
@@ -756,14 +858,8 @@ const App = () => (
 
     const element = (
       <div>
-        <Box size="small">
+        <Box>
           small lightblue box
-        </Box>
-        <Box size="medium">
-          medium pink box
-        </Box>
-        <Box size="large">
-          large orange box
         </Box>
       </div>
     )
@@ -773,7 +869,7 @@ const App = () => (
 </body>
 ```
 
-```html 6:26
+```html 7:17
 <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
@@ -791,22 +887,12 @@ const App = () => (
       width: 270px;
       height: 270px;
     }
-    .box--medium {
-      width: 180px;
-      height: 180px;
-    }
-    .box--small {
-      width: 90px;
-      height: 90px;
-    }
   </style>
   <script type="text/babel">
-    const Box = ({ size, children}) => {
-      const sizeClassName = `box--${size}`
-
+    const Box = ({ children }) => {
       return (
         <div
-          className={`box ${sizeClassName}`}
+          className="box box--large"
         >
           {children}
         </div>
@@ -815,14 +901,8 @@ const App = () => (
 
     const element = (
       <div>
-        <Box size="small">
+        <Box>
           small lightblue box
-        </Box>
-        <Box size="medium">
-          medium pink box
-        </Box>
-        <Box size="large">
-          large orange box
         </Box>
       </div>
     )
@@ -832,7 +912,7 @@ const App = () => (
 </body>
 ```
 
-```html 40:52
+```html 22:26
 <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
@@ -850,22 +930,12 @@ const App = () => (
       width: 270px;
       height: 270px;
     }
-    .box--medium {
-      width: 180px;
-      height: 180px;
-    }
-    .box--small {
-      width: 90px;
-      height: 90px;
-    }
   </style>
   <script type="text/babel">
-    const Box = ({ size, children}) => {
-      const sizeClassName = `box--${size}`
-
+    const Box = ({ children }) => {
       return (
         <div
-          className={`box ${sizeClassName}`}
+          className="box box--large"
         >
           {children}
         </div>
@@ -874,73 +944,8 @@ const App = () => (
 
     const element = (
       <div>
-        <Box size="small">
+        <Box>
           small lightblue box
-        </Box>
-        <Box size="medium">
-          medium pink box
-        </Box>
-        <Box size="large">
-          large orange box
-        </Box>
-      </div>
-    )
-
-    ReactDOM.render(element, document.getElementById('root'))
-  </script>
-</body>
-```
-
-```html 28:38
-<body>
-  <div id="root"></div>
-  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
-  <style>
-    .box {
-      border: 1px solid #333;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-    .box--large {
-      width: 270px;
-      height: 270px;
-    }
-    .box--medium {
-      width: 180px;
-      height: 180px;
-    }
-    .box--small {
-      width: 90px;
-      height: 90px;
-    }
-  </style>
-  <script type="text/babel">
-    const Box = ({ size, children}) => {
-      const sizeClassName = `box--${size}`
-
-      return (
-        <div
-          className={`box ${sizeClassName}`}
-        >
-          {children}
-        </div>
-      )
-    }
-
-    const element = (
-      <div>
-        <Box size="small">
-          small lightblue box
-        </Box>
-        <Box size="medium">
-          medium pink box
-        </Box>
-        <Box size="large">
-          large orange box
         </Box>
       </div>
     )
@@ -982,26 +987,9 @@ export default Header;
 
 ---
 
-<CodeSurfer theme={nightOwl}>
-
-```jsx
-import React from 'react'
-import styled from '@emotion/styled'
-
-const Button = styled.button`
-  color: turquoise;
-`
-
-export default Button;
-```
-
-</CodeSurfer>
-
----
-
 # 👨‍🔬 Construire sa première interface React.js
 
-Nous allons réaliser un clone de Slack [à partir d'une intégration front](https://github.com/greeeg/hetic-p2023-react/blob/master/resources/slack/index.html)
+Nous allons réaliser un [clone de Slack](https://hetic-p2023-react-examples.netlify.com/03-slack/index.html) à partir d'[une intégration front](https://github.com/greeeg/hetic-p2023-react/blob/master/resources/slack/index.html)
 
 ---
 
@@ -1179,7 +1167,7 @@ const App = () => (
 <Steps>
 
 - Privé
-- Controllé par le composant
+- Contrôlé par le composant
 
 </Steps>
 
