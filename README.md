@@ -50,8 +50,9 @@ Très concrètement, être capable de développer une application React.js fonct
 - Gestion des évènments
 - Le state
 - Le cycle de vie
+- Le rendu conditionnel
 - Les listes
-- Champs & Formulaires
+- Les formulaires
 
 ### Mise en perspective de React.js
 
@@ -60,12 +61,14 @@ Très concrètement, être capable de développer une application React.js fonct
 
 ### Aller plus loin avec React.js
 
-- Les refs
-- Les fragments
-- Le CSS-in-JS
-- Les requêtes HTTP en React.js
 - Utiliser `create-react-app`
+- Utiliser `React Dev Tools`
+- Misc
+  - Les refs
+  - Les fragments
+- Les requêtes HTTP en React.js
 - Construire et deployer une app
+- Le CSS-in-JS
 - Le routing
 - Optimizing performances (Code-splitting, Profiler)
 
