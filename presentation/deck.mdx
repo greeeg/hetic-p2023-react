@@ -1525,6 +1525,55 @@ const Counter = () => {
 
 ---
 
+# Le rendu conditionnel
+
+---
+
+## Il permet de rendre un composant que si certaines conditions sont respectées
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+const FormInput = () => {
+  return (
+    <div>
+      <input type="text" placeholder="Name" />
+      <p>Please fill your name</p>
+    </div>
+  )
+}
+```
+
+```jsx
+const FormInput = () => {
+  const containsError = true
+  return (
+    <div>
+      <input type="text" placeholder="Name" />
+      {containsError && <p>Please fill your name</p>}
+    </div>
+  )
+}
+```
+
+```jsx
+const FormInput = () => {
+  const containsError = true
+  return (
+    <div>
+      <input type="text" placeholder="Name" />
+      {containsError && <p>Please fill your name</p>}
+    </div>
+  )
+}
+```
+
+</CodeSurfer>
+
+---
+
 # Les listes
 
 ---
