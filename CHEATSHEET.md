@@ -6,13 +6,13 @@
 
 ## Table des matières
 
-- Elements & JSX
-- Application & Composants
-- Les évènements
-- Le state
-- Le cycle de vie
-- Les listes
-- Les formulaires
+- [Elements & JSX](#elements--jsx)
+- [Application & Composants](#application--composants)
+- [Les évènements](#les-évènements)
+- [Le state](#le-state)
+- [Le cycle de vie](#le-cycle-de-vie)
+- [Les listes](#les-listes)
+- [Les formulaires](#les-formulaires)
 
 ## Elements & JSX
 
