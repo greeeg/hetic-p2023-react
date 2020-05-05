@@ -28,12 +28,12 @@ Très concrètement, être capable de développer une application React.js fonct
 
 ## 🏁 Le plan
 
-### Le contexte
+### 👀 Le contexte
 
 - Comment s'affiche une page web ?
 - Évolution du développement front-end
 
-### React
+### ⚛️ React
 
 - Qu'est-ce que React.js
 - Les concepts derrière React
@@ -41,9 +41,8 @@ Très concrètement, être capable de développer une application React.js fonct
   - Everything is a component
   - Learn once, write everywhere
 
-### Les bases de React.js
+### 🐣 Les bases de React.js
 
-- Hello World (Vanilla JS vs React)
 - Le JSX
 - Les composants
 - Les Props
@@ -55,30 +54,23 @@ Très concrètement, être capable de développer une application React.js fonct
 - Les listes
 - Les formulaires
 
-### Mise en perspective de React.js
+### 🤔 Mise en perspective de React.js
 
 - Avantages/Inconvénients
 - Alternatives
 
-### Aller plus loin avec React.js
+### 👵 Aller plus loin avec React.js
 
 - Utiliser `create-react-app`
-- Utiliser `React Dev Tools`
-- Misc
-  - Les refs
-  - Les fragments
-- Les requêtes HTTP en React.js
-- Construire et deployer une app
+- React Dev Tools
+- Déployer une application React.js
+- L'AJAX avec React.js
 - Le CSS-in-JS
 - Le routing
-- Optimizing performances (Code-splitting, Profiler)
+- Les performances
 
-### L'écosystème React
+### ✨L'écosystème React
 
 - Thinking in React
-- React.js developer roadmap
 - The React community
-
-## 🛫 Aller plus loins
-
-![React developer roadmap](https://github.com/greeeg/hetic-p2023-react/blob/master/assets/react-developer-roadmap.png)
+- React.js developer roadmap
