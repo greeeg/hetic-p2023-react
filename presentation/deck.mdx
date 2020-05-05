@@ -1,16 +1,15 @@
-import { Head, Header, Steps } from 'mdx-deck'
-import { CodeSurfer } from "code-surfer"
-import { nightOwl } from "@code-surfer/themes"
-import { FootNote } from './components/FootNote'
-import { Logo } from './components/Logo'
-import { theme as myTheme } from './theme'
+import { Head, Header, Steps } from 'mdx-deck';
+import { CodeSurfer } from 'code-surfer';
+import { nightOwl } from '@code-surfer/themes';
+import { FootNote } from './components/FootNote';
+import { Logo } from './components/Logo';
+import { Link } from './components/Link';
+import { theme as myTheme } from './theme';
 
-export const theme = myTheme
+export const theme = myTheme;
 
 <Head>
-  <title>
-    🚀 Introduction à React.js — @greeeg
-  </title>
+  <title>🚀 Introduction à React.js — @greeeg</title>
 </Head>
 
 <Header>
@@ -71,23 +70,34 @@ Comment fonctionne l'affichage d'une page web ?
 
 ---
 
-import SSRDiagram from './static/ssr-diagram.png'
+import SSRDiagram from './static/ssr-diagram.png';
 
 <img src={SSRDiagram} style={{ width: 'auto', height: '70vh' }} />
 
-<FootNote>📚 <a href="https://www.freecodecamp.org/news/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c/">Comment le web fonctionne ?</a></FootNote>
+<FootNote>
+  📚{' '}
+  <a href="https://www.freecodecamp.org/news/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c/">
+    Comment le web fonctionne ?
+  </a>
+</FootNote>
 
 ---
 
-import ClientSideRenderingDiagram from './static/client-side-rendering-diagram.png'
+import ClientSideRenderingDiagram from './static/client-side-rendering-diagram.png';
 
-<img src={ClientSideRenderingDiagram} style={{ width: 'auto', height: '70vh' }} />
+<img
+  src={ClientSideRenderingDiagram}
+  style={{ width: 'auto', height: '70vh' }}
+/>
 
 ---
 
-import AndroidJqueryReact from './static/android-jquery-react.png'
+import AndroidJqueryReact from './static/android-jquery-react.png';
 
-<img src={AndroidJqueryReact} style={{ width: '60vw', height: 'auto', marginBottom: 40 }} />
+<img
+  src={AndroidJqueryReact}
+  style={{ width: '60vw', height: 'auto', marginBottom: 40 }}
+/>
 
 Quel est le lien entre toutes ces technologies ?
 
@@ -109,17 +119,19 @@ Quel est le lien entre toutes ces technologies ?
 - Expérience mobile (3G, offline, etc.)
 - Sources de données nombreuses
 
-<FootNote>📚 <a href="https://web.dev/">Le futur du web avec Google - Web.dev</a></FootNote>
+<FootNote>
+  📚 <a href="https://web.dev/">Le futur du web avec Google - Web.dev</a>
+</FootNote>
 
 ---
 
-import Craiglist from './static/craiglist.png'
+import Craiglist from './static/craiglist.png';
 
 <img src={Craiglist} style={{ height: '60vh', width: 'auto' }} />
 
 ---
 
-import Twitter from './static/twitter.png'
+import Twitter from './static/twitter.png';
 
 <img src={Twitter} style={{ height: '60vh', width: 'auto' }} />
 
@@ -151,19 +163,19 @@ import Twitter from './static/twitter.png'
 
 ---
 
-import ReactNPMStats from './static/react-npm-stats.png'
+import ReactNPMStats from './static/react-npm-stats.png';
 
 <img src={ReactNPMStats} style={{ height: '50vh', width: 'auto' }} />
 
 ---
 
-import ReactGitHubStats from './static/react-github-stats.png'
+import ReactGitHubStats from './static/react-github-stats.png';
 
 <img src={ReactGitHubStats} style={{ width: '80vw', height: 'auto' }} />
 
 ---
 
-import ReactChromeStats from './static/react-chrome-stats.png'
+import ReactChromeStats from './static/react-chrome-stats.png';
 
 <img src={ReactChromeStats} style={{ width: '60vw', height: 'auto' }} />
 
@@ -189,47 +201,69 @@ A JavaScript library for building user interfaces
 
 **Dessine un chat.** vs **Fais un trait noir, puis un arrondi vers le bas, etc.**
 
-<FootNote>📚 <a href="https://codeburst.io/declarative-vs-imperative-programming-a8a7c93d9ad2">Declarative vs Imperative programming</a></FootNote>
+<FootNote>
+  📚{' '}
+  <a href="https://codeburst.io/declarative-vs-imperative-programming-a8a7c93d9ad2">
+    Declarative vs Imperative programming
+  </a>
+</FootNote>
 
 ---
 
-import SheetImperative from './static/sheet-imperative.gif'
+import SheetImperative from './static/sheet-imperative.gif';
 
 # Imperative
 
-<img src={SheetImperative} style={{ width: '50vw', height: 'auto', marginBottom: 50 }} />
+<img
+  src={SheetImperative}
+  style={{ width: '50vw', height: 'auto', marginBottom: 50 }}
+/>
 
 On doit effectuer un calcul à chaque modification d'une des 2 variables qui définissent "fullname"
 
 ---
 
-import SheetDeclarative from './static/sheet-declarative.gif'
+import SheetDeclarative from './static/sheet-declarative.gif';
 
 # Declarative
 
-<img src={SheetDeclarative} style={{ width: '50vw', height: 'auto', marginBottom: 50 }} />
+<img
+  src={SheetDeclarative}
+  style={{ width: '50vw', height: 'auto', marginBottom: 50 }}
+/>
 
 On déclare comment "fullname" est défini sans jamais le modifier manuellement
 
 ---
 
-import ComponentsTree from './static/components-tree.png'
+import ComponentsTree from './static/components-tree.png';
 
 # Component-based
 
 <img src={ComponentsTree} style={{ width: 'auto', height: '40vh' }} />
 
-<FootNote>📚 <a href="https://itnext.io/a-guide-to-component-driven-development-cdd-1516f65d8b55">A Guide to Component Driven Development</a></FootNote>
+<FootNote>
+  📚{' '}
+  <a href="https://itnext.io/a-guide-to-component-driven-development-cdd-1516f65d8b55">
+    A Guide to Component Driven Development
+  </a>
+</FootNote>
 
 ---
 
-import ReactPlatforms from './static/react-platforms.png'
+import ReactPlatforms from './static/react-platforms.png';
 
 # Learn Once, Write Anywhere
 
 <img src={ReactPlatforms} style={{ width: '60vw', height: 'auto' }} />
 
-<FootNote>🍿 <a href="https://reactpodcast.simplecast.fm/81">React Podcast: Evan Bacon on Expo and the Future of "Build Once; Run Anywhere"</a></FootNote>
+<FootNote>
+  🍿{' '}
+  <a href="https://reactpodcast.simplecast.fm/81">
+    React Podcast: Evan Bacon on Expo and the Future of "Build Once; Run
+    Anywhere"
+  </a>
+</FootNote>
 
 ---
 
@@ -266,6 +300,24 @@ import ReactPlatforms from './static/react-platforms.png'
 
 ---
 
+## Les bases de React.js
+
+<Link step={39}>Le JSX</Link>
+<Link step={45}>Les composants</Link>
+<Link step={51}>Les props</Link>
+<Link step={57}>Le style</Link>
+<Link step={68}>Gestion des évènements</Link>
+
+---
+
+<Link step={72}>Le state</Link>
+<Link step={80}>Le cycle de vie</Link>
+<Link step={89}>Le rendu conditionnel</Link>
+<Link step={92}>Les listes</Link>
+<Link step={94}>Les formulaires</Link>
+
+---
+
 # Hello World 🚀
 
 ---
@@ -282,7 +334,7 @@ import ReactPlatforms from './static/react-platforms.png'
 
   <script type="text/javascript">
     function addHelloWorld() {
-      const root = document.querySelector('#root')
+      const root = document.querySelector('#root');
     }
   </script>
 </body>
@@ -294,10 +346,10 @@ import ReactPlatforms from './static/react-platforms.png'
 
   <script type="text/javascript">
     function addHelloWorld() {
-      const root = document.querySelector('#root')
-      const element = document.createElement('div')
-      element.textContent = 'Hello World'
-      element.className = 'container'
+      const root = document.querySelector('#root');
+      const element = document.createElement('div');
+      element.textContent = 'Hello World';
+      element.className = 'container';
     }
   </script>
 </body>
@@ -309,11 +361,11 @@ import ReactPlatforms from './static/react-platforms.png'
 
   <script type="text/javascript">
     function addHelloWorld() {
-      const root = document.querySelector('#root')
-      const element = document.createElement('div')
-      element.textContent = 'Hello World'
-      element.className = 'container'
-      root.appendChild(element)
+      const root = document.querySelector('#root');
+      const element = document.createElement('div');
+      element.textContent = 'Hello World';
+      element.className = 'container';
+      root.appendChild(element);
     }
   </script>
 </body>
@@ -335,9 +387,7 @@ import ReactPlatforms from './static/react-platforms.png'
 
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
-  <script type="text/javascript">
-
-  </script>
+  <script type="text/javascript"></script>
 </body>
 ```
 
@@ -349,7 +399,7 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script type="text/javascript">
     function addHelloWorld() {
-      const root = document.getElementById('root')
+      const root = document.getElementById('root');
     }
   </script>
 </body>
@@ -363,11 +413,11 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script type="text/javascript">
     function addHelloWorld() {
-      const root = document.getElementById('root')
+      const root = document.getElementById('root');
       const element = React.createElement('div', {
         className: 'container',
-        children: 'Hello World',
-      })
+        children: 'Hello World'
+      });
     }
   </script>
 </body>
@@ -381,12 +431,12 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script type="text/javascript">
     function addHelloWorld() {
-      const root = document.getElementById('root')
+      const root = document.getElementById('root');
       const element = React.createElement('div', {
         className: 'container',
-        children: 'Hello World',
-      })
-      ReactDOM.render(element, root)
+        children: 'Hello World'
+      });
+      ReactDOM.render(element, root);
     }
   </script>
 </body>
@@ -417,12 +467,12 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script type="text/javascript">
     function addHelloWorld() {
-      const root = document.getElementById('root')
+      const root = document.getElementById('root');
       const element = React.createElement('div', {
         className: 'container',
-        children: 'Hello World',
-      })
-      ReactDOM.render(element, root)
+        children: 'Hello World'
+      });
+      ReactDOM.render(element, root);
     }
   </script>
 </body>
@@ -437,9 +487,9 @@ import ReactPlatforms from './static/react-platforms.png'
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
     function addHelloWorld() {
-      const root = document.getElementById('root')
-      const element = <div className="container">Hello World</div>
-      ReactDOM.render(element, root)
+      const root = document.getElementById('root');
+      const element = <div className="container">Hello World</div>;
+      ReactDOM.render(element, root);
     }
   </script>
 </body>
@@ -458,7 +508,9 @@ import ReactPlatforms from './static/react-platforms.png'
 
 </Steps>
 
-<FootNote>📚 <a href="https://jasonformat.com/wtf-is-jsx/">WTF is JSX?</a></FootNote>
+<FootNote>
+  📚 <a href="https://jasonformat.com/wtf-is-jsx/">WTF is JSX?</a>
+</FootNote>
 
 ---
 
@@ -480,8 +532,8 @@ import ReactPlatforms from './static/react-platforms.png'
 <CodeSurfer theme={nightOwl}>
 
 ```jsx subtitle="Si la variable ne contient qu'un élément, on l'écrit comme ça"
-const message = <p>Hello World</p>
-ReactDOM.render(message, document.getElementById('root'))
+const message = <p>Hello World</p>;
+ReactDOM.render(message, document.getElementById('root'));
 ```
 
 ```jsx subtitle="Si la variable contient des éléments imbriqués, on l'écrit comme ça"
@@ -489,8 +541,8 @@ const message = (
   <div>
     <p>Hello World</p>
   </div>
-)
-ReactDOM.render(message, document.getElementById('root'))
+);
+ReactDOM.render(message, document.getElementById('root'));
 ```
 
 </CodeSurfer>
@@ -504,37 +556,39 @@ ReactDOM.render(message, document.getElementById('root'))
 <CodeSurfer theme={nightOwl}>
 
 ```jsx subtitle="En Javascript, on peut utiliser les template strings pour intégrer des expressions dans une chaîne de caractères"
-const price = 12.5
-const tva = 19.6
-const total = price + (price * (tva / 100))
+const price = 12.5;
+const tva = 19.6;
+const total = price + price * (tva / 100);
 
-const message = `The price with included taxes is ${total} euros.`
+const message = `The price with included taxes is ${total} euros.`;
 ```
 
 ```jsx subtitle="On peut même directement appeler des fonctions"
-const price = 12.5
-const tva = 19.6
-const total = price + (price * (tva / 100))
+const price = 12.5;
+const tva = 19.6;
+const total = price + price * (tva / 100);
 
-const message = `The price with included taxes is ${parseInt(total)} euros.`
+const message = `The price with included taxes is ${parseInt(total)} euros.`;
 ```
 
 ```jsx subtitle="En JSX, on peut faire la même chose en omettant le $"
-const price = 12.5
-const tva = 19.6
-const total = price + (price * (tva / 100))
+const price = 12.5;
+const tva = 19.6;
+const total = price + price * (tva / 100);
 
-const message = <p>The price with included taxes is {total} euros.</p>
-ReactDOM.render(message, document.getElementById('root'))
+const message = <p>The price with included taxes is {total} euros.</p>;
+ReactDOM.render(message, document.getElementById('root'));
 ```
 
 ```jsx subtitle="Et aussi appeler des fonctions dans le JSX"
-const price = 12.5
-const tva = 19.6
-const total = price + (price * (tva / 100))
+const price = 12.5;
+const tva = 19.6;
+const total = price + price * (tva / 100);
 
-const message = <p>The price with included taxes is {parseInt(total)} euros.</p>
-ReactDOM.render(message, document.getElementById('root'))
+const message = (
+  <p>The price with included taxes is {parseInt(total)} euros.</p>
+);
+ReactDOM.render(message, document.getElementById('root'));
 ```
 
 </CodeSurfer>
@@ -545,36 +599,36 @@ ReactDOM.render(message, document.getElementById('root'))
 
 ---
 
-## On définit un composant comme étant un élément/objet qui entre dans la composition de quelque chose 
+## On définit un composant comme étant un élément/objet qui entre dans la composition de quelque chose
 
 ---
 
 <CodeSurfer theme={nightOwl}>
 
 ```jsx subtitle="Imaginons une application de cartes d'anniversaire"
-const julia = 'Julia Robert'
+const julia = 'Julia Robert';
 
-const wishMessageJulia = `HAPPY BIRTHDAY ${julia.toUpperCase()}!`
+const wishMessageJulia = `HAPPY BIRTHDAY ${julia.toUpperCase()}!`;
 ```
 
 ```jsx subtitle="Dans laquelle on génère des messages d'anniversaire"
-const julia = 'Julia Robert'
-const thomas = 'Thomas René'
+const julia = 'Julia Robert';
+const thomas = 'Thomas René';
 
-const wishMessageJulia = `HAPPY BIRTHDAY ${julia.toUpperCase()}!`
-const wishMessageThomas = `HAPPY BIRTHDAY ${thomas.toUpperCase()}!`
+const wishMessageJulia = `HAPPY BIRTHDAY ${julia.toUpperCase()}!`;
+const wishMessageThomas = `HAPPY BIRTHDAY ${thomas.toUpperCase()}!`;
 ```
 
 ```jsx subtitle="Pour simplifier la tâche, on crée une fonction qui génère les messages"
-const julia = 'Julia Robert'
-const thomas = 'Thomas René'
+const julia = 'Julia Robert';
+const thomas = 'Thomas René';
 
 function wishHappyBirthday(name) {
-  return `HAPPY BIRTHDAY ${name.toUpperCase()}!`
+  return `HAPPY BIRTHDAY ${name.toUpperCase()}!`;
 }
 
-const wishMessageJulia = wishHappyBirthday(julia)
-const wishMessageThomas = wishHappyBirthday(thomas)
+const wishMessageJulia = wishHappyBirthday(julia);
+const wishMessageThomas = wishHappyBirthday(thomas);
 ```
 
 </CodeSurfer>
@@ -584,28 +638,26 @@ const wishMessageThomas = wishHappyBirthday(thomas)
 <CodeSurfer theme={nightOwl}>
 
 ```jsx subtitle="Si on souhaitait réaliser cette application avec React.js, on créerait sûrement les éléments suivants"
-const julia = 'Julia Robert'
-const thomas = 'Thomas René'
+const julia = 'Julia Robert';
+const thomas = 'Thomas René';
 
-const wishMessageJulia = <p>HAPPY BIRTHDAY {julia.toUpperCase()}!</p>
-const wishMessageThomas = <p>HAPPY BIRTHDAY {thomas.toUpperCase()}!</p>
+const wishMessageJulia = <p>HAPPY BIRTHDAY {julia.toUpperCase()}!</p>;
+const wishMessageThomas = <p>HAPPY BIRTHDAY {thomas.toUpperCase()}!</p>;
 
 const app = (
   <div>
     {wishMessageJulia}
     {wishMessageThomas}
   </div>
-)
+);
 ```
 
 ```jsx subtitle="On peut, comme en Javascript, créer une fonction qui génère ces messages"
-const julia = 'Julia Robert'
-const thomas = 'Thomas René'
+const julia = 'Julia Robert';
+const thomas = 'Thomas René';
 
 function WishHappyBirthday() {
-  return (
-    <p>HAPPY BIRTHDAY!</p>
-  )
+  return <p>HAPPY BIRTHDAY!</p>;
 }
 ```
 
@@ -629,9 +681,7 @@ function WishHappyBirthday() {
 
 ```jsx subtitle="⛔️ Pour utiliser ces composants, on ne les appelle pas comme des fonctions Javascript"
 function WishHappyBirthday() {
-  return (
-    <p>HAPPY BIRTHDAY!</p>
-  )
+  return <p>HAPPY BIRTHDAY!</p>;
 }
 
 const app = (
@@ -639,14 +689,12 @@ const app = (
     {WishHappyBirthday()}
     {WishHappyBirthday()}
   </div>
-)
+);
 ```
 
 ```jsx subtitle="✅ Mais comme ceci"
 function WishHappyBirthday() {
-  return (
-    <p>HAPPY BIRTHDAY!</p>
-  )
+  return <p>HAPPY BIRTHDAY!</p>;
 }
 
 const app = (
@@ -654,14 +702,12 @@ const app = (
     <WishHappyBirthday />
     <WishHappyBirthday />
   </div>
-)
+);
 ```
 
 ```jsx subtitle="Cela permet de les différencier des éléments natifs en JSX"
 function WishHappyBirthday() {
-  return (
-    <p>HAPPY BIRTHDAY!</p>
-  )
+  return <p>HAPPY BIRTHDAY!</p>;
 }
 
 const app = (
@@ -670,15 +716,13 @@ const app = (
     <a href="/index.html">Link to home</a>
     <WishHappyBirthday />
   </div>
-)
+);
 ```
 
 ```jsx subtitle="On peut aussi les écrire comme ceci"
 const WishHappyBirthday = () => {
-  return (
-    <p>HAPPY BIRTHDAY!</p>
-  )
-}
+  return <p>HAPPY BIRTHDAY!</p>;
+};
 
 const app = (
   <div>
@@ -686,13 +730,11 @@ const app = (
     <a href="/index.html">Link to home</a>
     <WishHappyBirthday />
   </div>
-)
+);
 ```
 
 ```jsx subtitle="On encore comme ceci"
-const WishHappyBirthday = () => (
-    <p>HAPPY BIRTHDAY!</p>
-)
+const WishHappyBirthday = () => <p>HAPPY BIRTHDAY!</p>;
 
 const app = (
   <div>
@@ -700,7 +742,7 @@ const app = (
     <a href="/index.html">Link to home</a>
     <WishHappyBirthday />
   </div>
-)
+);
 ```
 
 </CodeSurfer>
@@ -727,38 +769,26 @@ const app = (
 
 ```jsx subtitle="Sans props, impossible de rendre dynamique ce que mon composant affiche"
 function WishHappyBirthday() {
-  return (
-    <p>HAPPY BIRTHDAY!</p>
-  )
+  return <p>HAPPY BIRTHDAY!</p>;
 }
 
-const App = () => (
-  <WishHappyBirthday />
-)
+const App = () => <WishHappyBirthday />;
 ```
 
 ```jsx subtitle="Ici, je passe une prop qui est utilisée dans le JSX"
 function WishHappyBirthday(props) {
-  return (
-    <p>HAPPY BIRTHDAY {props.name.toUpperCase()}!</p>
-  )
+  return <p>HAPPY BIRTHDAY {props.name.toUpperCase()}!</p>;
 }
 
-const App = () => (
-  <WishHappyBirthday name="Julia" />
-)
+const App = () => <WishHappyBirthday name="Julia" />;
 ```
 
 ```jsx subtitle="On peut simplifer l'écriture en destructurant l'objet props"
 function WishHappyBirthday({ name }) {
-  return (
-    <p>HAPPY BIRTHDAY {name.toUpperCase()}!</p>
-  )
+  return <p>HAPPY BIRTHDAY {name.toUpperCase()}!</p>;
 }
 
-const App = () => (
-  <WishHappyBirthday name="Julia" />
-)
+const App = () => <WishHappyBirthday name="Julia" />;
 ```
 
 </CodeSurfer>
@@ -786,18 +816,23 @@ const App = () => (
 
 </Steps>
 
-
 ---
 
 <CodeSurfer theme={nightOwl}>
 
 ```jsx subtitle="Attention à ne pas confondre composants et éléments"
-const element = <a href="https://google.com" title="Google">Search on Google</a>
+const element = (
+  <a href="https://google.com" title="Google">
+    Search on Google
+  </a>
+);
 
 function Component() {
   return (
-    <a href="https://google.com" title="Google">Search on Google</a>
-  )
+    <a href="https://google.com" title="Google">
+      Search on Google
+    </a>
+  );
 }
 
 const App = () => (
@@ -805,7 +840,7 @@ const App = () => (
     {element}
     <Component />
   </div>
-)
+);
 ```
 
 </CodeSurfer>
@@ -847,24 +882,16 @@ const App = () => (
   </style>
   <script type="text/babel">
     const Box = ({ children }) => {
-      return (
-        <div
-          className="box box--large"
-        >
-          {children}
-        </div>
-      )
-    }
+      return <div className="box box--large">{children}</div>;
+    };
 
     const element = (
       <div>
-        <Box>
-          small lightblue box
-        </Box>
+        <Box>small lightblue box</Box>
       </div>
-    )
+    );
 
-    ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(element, document.getElementById('root'));
   </script>
 </body>
 ```
@@ -890,24 +917,16 @@ const App = () => (
   </style>
   <script type="text/babel">
     const Box = ({ children }) => {
-      return (
-        <div
-          className="box box--large"
-        >
-          {children}
-        </div>
-      )
-    }
+      return <div className="box box--large">{children}</div>;
+    };
 
     const element = (
       <div>
-        <Box>
-          small lightblue box
-        </Box>
+        <Box>small lightblue box</Box>
       </div>
-    )
+    );
 
-    ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(element, document.getElementById('root'));
   </script>
 </body>
 ```
@@ -933,24 +952,16 @@ const App = () => (
   </style>
   <script type="text/babel">
     const Box = ({ children }) => {
-      return (
-        <div
-          className="box box--large"
-        >
-          {children}
-        </div>
-      )
-    }
+      return <div className="box box--large">{children}</div>;
+    };
 
     const element = (
       <div>
-        <Box>
-          small lightblue box
-        </Box>
+        <Box>small lightblue box</Box>
       </div>
-    )
+    );
 
-    ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(element, document.getElementById('root'));
   </script>
 </body>
 ```
@@ -981,9 +992,15 @@ export default Header;
 ---
 
 # En utilisant des librairies de **CSS-in-JS**
+
 (Nous reviendrons dessus plus tard)
 
-<FootNote>📚 <a href="https://2019.stateofcss.com/technologies/css-in-js/">State of CSS - 2019 Edition</a></FootNote>
+<FootNote>
+  📚{' '}
+  <a href="https://2019.stateofcss.com/technologies/css-in-js/">
+    State of CSS - 2019 Edition
+  </a>
+</FootNote>
 
 ---
 
@@ -993,18 +1010,26 @@ Nous allons réaliser un [clone de Slack](https://hetic-p2023-react-examples.net
 
 ---
 
-import LegoBricks from './static/lego-bricks.png'
+import LegoBricks from './static/lego-bricks.png';
 
 <img src={LegoBricks} style={{ width: '60vw', height: 'auto' }} />
 
 ---
 
-import LegoComponentsGood from './static/lego-components-good.jpeg'
-import LegoComponentsBad from './static/lego-components-bad.jpeg'
+import LegoComponentsGood from './static/lego-components-good.jpeg';
+import LegoComponentsBad from './static/lego-components-bad.jpeg';
 
 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-  <img style={{ width: 'auto', height: '50vh', marginRight: 40 }} src={LegoComponentsGood} alt=""/>
-  <img style={{ width: 'auto', height: '50vh' }} src={LegoComponentsBad} alt=""/>
+  <img
+    style={{ width: 'auto', height: '50vh', marginRight: 40 }}
+    src={LegoComponentsGood}
+    alt=""
+  />
+  <img
+    style={{ width: 'auto', height: '50vh' }}
+    src={LegoComponentsBad}
+    alt=""
+  />
 </div>
 
 ---
@@ -1036,122 +1061,101 @@ import LegoComponentsBad from './static/lego-components-bad.jpeg'
 <CodeSurfer theme={nightOwl}>
 
 ```jsx subtitle="On récupère l'élément sur lequel on souhaite greffer l'évenement"
-const input = document.querySelector('input')
+const input = document.querySelector('input');
 ```
 
 ```jsx subtitle="On ajoute un écouteur d'évenement sur cet élément"
-const input = document.querySelector('input')
+const input = document.querySelector('input');
 
-input.addEventListener('keyup', e => {
-  
-})
+input.addEventListener('keyup', (e) => {});
 ```
 
 ```jsx subtitle="On y ajoute la logique voulue"
-const input = document.querySelector('input')
+const input = document.querySelector('input');
 
-input.addEventListener('keyup', e => {
-  const text = e.target.value
+input.addEventListener('keyup', (e) => {
+  const text = e.target.value;
 
   if (text.length > 10) {
-    alert('This is way too long')
+    alert('This is way too long');
   } else {
-    document.title = `(${text}) Learning Javascript`
+    document.title = `(${text}) Learning Javascript`;
   }
-})
+});
 ```
 
 ```jsx
-const input = document.querySelector('input')
+const input = document.querySelector('input');
 
-input.addEventListener('keyup', e => {
-  const text = e.target.value
+input.addEventListener('keyup', (e) => {
+  const text = e.target.value;
 
   if (text.length > 10) {
-    alert('This is way too long')
+    alert('This is way too long');
   } else {
-    document.title = `(${text}) Learning Javascript`
+    document.title = `(${text}) Learning Javascript`;
   }
-})
+});
 ```
 
 </CodeSurfer>
 
 ---
 
-
 <CodeSurfer theme={nightOwl}>
 
 ```jsx subtitle="On crée notre composant"
 const TextInput = () => {
-  return (
-    <input type="text" />
-  )
-}
+  return <input type="text" />;
+};
 
-const App = () => (
-  <TextInput />
-)
+const App = () => <TextInput />;
 ```
 
 ```jsx subtitle="On ajoute un écouteur d'évènement sur l'élément du DOM qui nous intéresse"
 const TextInput = () => {
-  const onChange = () => {
+  const onChange = () => {};
 
-  }
+  return <input type="text" onKeyUp={onChange} />;
+};
 
-  return (
-    <input type="text" onKeyUp={onChange} />
-  )
-}
-
-const App = () => (
-  <TextInput />
-)
+const App = () => <TextInput />;
 ```
 
 ```jsx subtitle="On y ajoute la logique voulue"
 const TextInput = () => {
-  const onChange = e => {
-    const text = e.target.value
+  const onChange = (e) => {
+    const text = e.target.value;
 
     if (text.length > 10) {
-      alert('This is way too long')
+      alert('This is way too long');
     } else {
-      document.title = `(${text}) Learning Javascript`
+      document.title = `(${text}) Learning Javascript`;
     }
-  }
+  };
 
-  return (
-    <input type="text" onKeyUp={onChange} />
-  )
-}
+  return <input type="text" onKeyUp={onChange} />;
+};
 
-const App = () => (
-  <TextInput />
-)
+const App = () => <TextInput />;
 ```
 
 ```jsx
 const TextInput = () => {
-  const onChange = e => {
-    const text = e.target.value
+  const onChange = (e) => {
+    const text = e.target.value;
 
     if (text.length > 10) {
-      alert('This is way too long')
+      alert('This is way too long');
     } else {
-      document.title = `(${text}) Learning Javascript`
+      document.title = `(${text}) Learning Javascript`;
     }
-  }
+  };
 
-  return (
-    <input type="text" onKeyUp={onChange} />
-  )
-}
+  return <input type="text" onKeyUp={onChange} />;
+};
 
-const App = () => (
-  <TextInput />
-)
+const App = () => <TextInput />;
 ```
 
 </CodeSurfer>
@@ -1176,69 +1180,49 @@ const App = () => (
 <CodeSurfer theme={nightOwl}>
 
 ```jsx
-import React from 'react'
+import React from 'react';
 
 const Counter = () => {
-  return (
-    <button>
-      Clicked: 0
-    </button>
-  )
-}
+  return <button>Clicked: 0</button>;
+};
 ```
 
 ```jsx
-import React from 'react'
+import React from 'react';
 
 const Counter = () => {
-  return (
-    <button onClick={() => console.log('clicked')}>
-      Clicked: 0
-    </button>
-  )
-}
+  return <button onClick={() => console.log('clicked')}>Clicked: 0</button>;
+};
 ```
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Counter = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  return (
-    <button onClick={() => console.log('clicked')}>
-      Clicked: 0
-    </button>
-  )
-}
+  return <button onClick={() => console.log('clicked')}>Clicked: 0</button>;
+};
 ```
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Counter = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Clicked: {count}
-    </button>
-  )
-}
+  return <button onClick={() => setCount(count + 1)}>Clicked: {count}</button>;
+};
 ```
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Counter = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Clicked: {count}
-    </button>
-  )
-}
+  return <button onClick={() => setCount(count + 1)}>Clicked: {count}</button>;
+};
 ```
 
 </CodeSurfer>
@@ -1271,28 +1255,29 @@ const Counter = () => {
 
 Les hooks ont été introduit dans React à partir de la version **16.8**. Ils permettent d'utiliser des fonctionnalités de React sans écrire de **Class**.
 
-<FootNote>📚 <a href="https://medium.com/better-programming/react-hooks-vs-classes-add2676a32f2">React: Hooks vs Classes?</a></FootNote>
+<FootNote>
+  📚{' '}
+  <a href="https://medium.com/better-programming/react-hooks-vs-classes-add2676a32f2">
+    React: Hooks vs Classes?
+  </a>
+</FootNote>
 
 ---
 
 <CodeSurfer theme={nightOwl}>
 
 ```jsx subtitle="Un composant Counter écrit avec un hook ressemble à cela"
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Counter = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Clicked: {count}
-    </button>
-  )
-}
+  return <button onClick={() => setCount(count + 1)}>Clicked: {count}</button>;
+};
 ```
 
 ```jsx subtitle="Mais on peut aussi l'écrire de cette manière"
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Counter extends Component {
   constructor(props) {
@@ -1308,7 +1293,7 @@ class Counter extends Component {
       <button onClick={() => this.setState({ count: this.state.count + 1 })}>
         Clicked: {count}
       </button>
-    )
+    );
   }
 }
 ```
@@ -1331,7 +1316,7 @@ Nous allons réaliser [l'exemple des Threads](https://hetic-p2023-react-examples
 
 <Steps>
 
-1. lorsqu'une de ses **props** change 
+1. lorsqu'une de ses **props** change
 2. lorsque son **state** change
 
 </Steps>
@@ -1345,37 +1330,29 @@ Nous allons réaliser [l'exemple des Threads](https://hetic-p2023-react-examples
 <CodeSurfer theme={nightOwl}>
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Counter = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Clicked: {count}
-    </button>
-  )
-}
+  return <button onClick={() => setCount(count + 1)}>Clicked: {count}</button>;
+};
 ```
 
 ```jsx
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 const Counter = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   // Called each time component updates
   // and on initialization
   useEffect(() => {
     document.title = `You clicked ${count} times`;
-  })
+  });
 
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Clicked: {count}
-    </button>
-  )
-}
+  return <button onClick={() => setCount(count + 1)}>Clicked: {count}</button>;
+};
 ```
 
 </CodeSurfer>
@@ -1391,65 +1368,71 @@ De cette manière, la fonction qu'il contient ne sera appelée que lorsque l'une
 <CodeSurfer theme={nightOwl}>
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Counter = () => {
-  const [integers, setIntegers] = useState(0)
-  const [decimals, setDecimals] = useState(0)
+  const [integers, setIntegers] = useState(0);
+  const [decimals, setDecimals] = useState(0);
 
   return (
     <div>
       <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
       <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
 
-      <p>{integers},{decimals}</p>
+      <p>
+        {integers},{decimals}
+      </p>
     </div>
-  )
-}
+  );
+};
 ```
 
 ```jsx
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 const Counter = () => {
-  const [integers, setIntegers] = useState(0)
-  const [decimals, setDecimals] = useState(0)
+  const [integers, setIntegers] = useState(0);
+  const [decimals, setDecimals] = useState(0);
 
   useEffect(() => {
-    console.log('counter updated')
-  })
+    console.log('counter updated');
+  });
 
   return (
     <div>
       <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
       <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
 
-      <p>{integers},{decimals}</p>
+      <p>
+        {integers},{decimals}
+      </p>
     </div>
-  )
-}
+  );
+};
 ```
 
 ```jsx
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 const Counter = () => {
-  const [integers, setIntegers] = useState(0)
-  const [decimals, setDecimals] = useState(0)
+  const [integers, setIntegers] = useState(0);
+  const [decimals, setDecimals] = useState(0);
 
   useEffect(() => {
-    console.log('integers updated')
-  }, [integers])
+    console.log('integers updated');
+  }, [integers]);
 
   return (
     <div>
       <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
       <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
 
-      <p>{integers},{decimals}</p>
+      <p>
+        {integers},{decimals}
+      </p>
     </div>
-  )
-}
+  );
+};
 ```
 
 </CodeSurfer>
@@ -1463,51 +1446,55 @@ const Counter = () => {
 <CodeSurfer theme={nightOwl}>
 
 ```jsx
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 const Counter = () => {
-  const [integers, setIntegers] = useState(0)
-  const [decimals, setDecimals] = useState(0)
+  const [integers, setIntegers] = useState(0);
+  const [decimals, setDecimals] = useState(0);
 
   useEffect(() => {
-    console.log('integers updated')
-  }, [integers])
+    console.log('integers updated');
+  }, [integers]);
 
   return (
     <div>
       <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
       <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
 
-      <p>{integers},{decimals}</p>
+      <p>
+        {integers},{decimals}
+      </p>
     </div>
-  )
-}
+  );
+};
 ```
 
 ```jsx
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 const Counter = () => {
-  const [integers, setIntegers] = useState(0)
-  const [decimals, setDecimals] = useState(0)
+  const [integers, setIntegers] = useState(0);
+  const [decimals, setDecimals] = useState(0);
 
   useEffect(() => {
-    console.log('counter mounted')
+    console.log('counter mounted');
 
     return () => {
-      console.log('counter unmounted')
-    }
-  }, [])
+      console.log('counter unmounted');
+    };
+  }, []);
 
   return (
     <div>
       <button onClick={() => setIntegers(integers + 1)}>Add integers</button>
       <button onClick={() => setDecimals(decimals + 1)}>Add decimals</button>
 
-      <p>{integers},{decimals}</p>
+      <p>
+        {integers},{decimals}
+      </p>
     </div>
-  )
-}
+  );
+};
 ```
 
 </CodeSurfer>
@@ -1542,32 +1529,32 @@ const FormInput = () => {
       <input type="text" placeholder="Name" />
       <p>Please fill your name</p>
     </div>
-  )
-}
+  );
+};
 ```
 
 ```jsx
 const FormInput = () => {
-  const containsError = true
+  const containsError = true;
   return (
     <div>
       <input type="text" placeholder="Name" />
       {containsError && <p>Please fill your name</p>}
     </div>
-  )
-}
+  );
+};
 ```
 
 ```jsx
 const FormInput = () => {
-  const containsError = true
+  const containsError = true;
   return (
     <div>
       <input type="text" placeholder="Name" />
       {containsError && <p>Please fill your name</p>}
     </div>
-  )
-}
+  );
+};
 ```
 
 </CodeSurfer>
@@ -1582,19 +1569,19 @@ const FormInput = () => {
 
 ```jsx
 const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map(number => number * 2);
+const doubled = numbers.map((number) => number * 2);
 ```
 
 ```jsx
 const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map(number => number * 2);
+const doubled = numbers.map((number) => number * 2);
 
 // [2, 4, 6, 8, 10]
 ```
 
 ```jsx
 const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map(number => number * 2);
+const doubled = numbers.map((number) => number * 2);
 
 // [2, 4, 6, 8, 10]
 
@@ -1633,36 +1620,32 @@ const NamesList = () => {
 <CodeSurfer theme={nightOwl}>
 
 ```jsx
-import React from 'react'
+import React from 'react';
 
 const TextInput = () => {
-  const value = 'Greg'
+  const value = 'Greg';
 
-  return (
-    <input type="text" value={value} />
-  )
-}
+  return <input type="text" value={value} />;
+};
 ```
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const TextInput = () => {
-  const [value, setValue] = useState('Greg')
+  const [value, setValue] = useState('Greg');
 
   return (
-    <input type="text" value={value} onChange={e => setValue(e.target.value)} />
-  )
-}
+    <input
+      type="text"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  );
+};
 ```
 
 </CodeSurfer>
-
----
-
-## 👨‍🔬 Construire une interface réactive complète
-
-Nous allons réaliser une application semblable à [Pocket](https://hetic-p2023-react-examples.netlify.com/05-wikipocket/index.html) pour sauvegarder des articles Wikipedia à lire plus tard
 
 ---
 
@@ -1703,3 +1686,282 @@ Nous allons réaliser une application semblable à [Pocket](https://hetic-p2023-
 - Svelte.js
 
 </Steps>
+
+---
+
+## Aller plus loin avec React.js
+
+<Link step={103}>create-react-app</Link>
+<Link step={113}>React Dev Tools</Link>
+<Link step={118}>Déployer une app React.js</Link>
+
+---
+
+<Link step={123}>L'AJAX avec React.js</Link>
+<Link step={68}>Le CSS-in-JS</Link>
+<Link step={68}>Le routing</Link>
+<Link step={68}>Les performances</Link>
+
+---
+
+## `create-react-app`
+
+---
+
+`create-react-app` est un outil permettant de créer et maintenir des applications React.js facilement. Il prend la forme d'un **CLI** (Command line interface) qui génère une structure de dossiers d'application React.js.
+
+---
+
+## Avantages
+
+- Pas de configuration initiale
+- Plein d'éléments intégrés par défaut (Webpack, Dev server, Babel)
+- Maintenu par la communauté React.js
+
+---
+
+## Inconvénients
+
+- Difficle à personnaliser pour des cas particuliers
+- Une fois qu'on **eject**, impossible de revenir en arrière
+
+---
+
+## Prérequis
+
+- Node.js (>8.10)
+- NPM (>5.2) ou Yarn (>0.25)
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```bash
+# Générer une app avec NPM
+npm init react-app app-name
+
+# Générer une app avec Yarn
+yarn create react-app app-name
+
+# Se déplacer dans le dossier racine de mon app
+cd app-name
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```json
+{
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
+```
+
+</CodeSurfer>
+
+<FootNote>
+  Le package{' '}
+  <a href="https://www.npmjs.com/package/react-scripts" target="_blank">
+    react-scripts
+  </a>{' '}
+  contient toute la logique que nous aurions du mettre en place manuellement
+  avec Webpack.
+</FootNote>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```bash
+app-name
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    └── serviceWorker.js
+```
+
+</CodeSurfer>
+
+<FootNote>
+  Le point d'entrée de l'application est le fichier{' '}
+  <strong>src/index.js</strong>.
+</FootNote>
+
+---
+
+import CreateReactApp from './static/create-react-app.png';
+
+<img src={CreateReactApp} style={{ width: 'auto', height: '65vh' }} />
+
+<FootNote>
+  En utilisant la commande <strong>yarn start</strong>, cette page devrait
+  s'afficher dans votre navigateur.
+</FootNote>
+
+---
+
+## Vous êtes prêts à travailler, happy coding 🤗.
+
+---
+
+## React Dev Tools
+
+---
+
+### Une extension navigateur pour debugger des applications React.js
+
+---
+
+import ReactDevTools from './static/react-dev-tools.png';
+
+<img src={ReactDevTools} style={{ width: 'auto', height: '70vh' }} />
+
+<FootNote>
+  Disponible sur{' '}
+  <a
+    href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi"
+    target="_blank"
+  >
+    Chrome
+  </a>{' '}
+  et{' '}
+  <a
+    href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/"
+    target="_blank"
+  >
+    Firefox
+  </a>
+</FootNote>
+
+---
+
+import ReactDevToolsComponentsTree from './static/react-dev-tools-components-tree.png';
+
+<img
+  src={ReactDevToolsComponentsTree}
+  style={{ width: 'auto', height: '70vh' }}
+/>
+
+---
+
+import ReactDevToolsFlamegraph from './static/react-dev-tools-flamegraph.png';
+
+<img src={ReactDevToolsFlamegraph} style={{ width: 'auto', height: '70vh' }} />
+
+<FootNote>
+  📚{' '}
+  <a
+    href="https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html"
+    target="_blank"
+  >
+    Introducing the React Profiler
+  </a>
+</FootNote>
+
+---
+
+## Déployer une application React.js
+
+---
+
+### `create-react-app` est en mesure de générer pour vous un export statique de votre application web avec la commande **yarn build**.
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```bash
+app-name
+└── build
+    ├── asset-manifest.json
+    ├── favicon.ico
+    ├── index.html
+    ├── logo192.png
+    ├── logo512.png
+    ├── manifest.json
+    ├── precache-manifest.a3de7dc90081be00fbc342ae7cc26178.js
+    ├── robots.txt
+    ├── service-worker.js
+    └── static
+
+```
+
+</CodeSurfer>
+
+<FootNote>
+  L'export statique se trouve dans le dossier <strong>build</strong> de votre
+  projet.
+</FootNote>
+
+---
+
+## Il existe 2 grands moyens de déployer une application web pour la rendre accessible :
+
+<Steps>
+
+- Utiliser un serveur web avec [FTP](https://social.hoga.fr/system/media_attachments/files/000/000/494/original/c3fde188f35aa92d.png) par exemple
+- Utiliser un CDN/PaaS
+
+</Steps>
+
+---
+
+## Nous allons utiliser [Netlify](https://www.netlify.com/)
+
+---
+
+## L'AJAX avec React.js
+
+---
+
+## Le CSS-in-JS
+
+---
+
+## Le routing
+
+---
+
+## Les performances
+
+---
+
+## L'écosystème React
+
+<Link step={39}>Thinking in React</Link>
+<Link step={45}>The React community</Link>
+<Link step={51}>React.js developer roadmap</Link>
+
+---
+
+## Thinking in React
+
+---
+
+## The React community
+
+---
+
+## React.js developer roadmap

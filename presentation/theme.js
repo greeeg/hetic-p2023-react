@@ -1,7 +1,7 @@
 import { nightOwl } from '@code-surfer/themes';
 
-const YELLOW = 'rgb(255, 203, 139)';
-const BLUE = '#5dd3f3';
+export const YELLOW = 'rgb(255, 203, 139)';
+export const BLUE = '#5dd3f3';
 
 const defaultHeadingStyles = () => ({
   fontWeight: '500',
@@ -12,7 +12,7 @@ const defaultHeadingStyles = () => ({
   lineHeight: 1.4
 });
 
-const responsiveFontSize = baseSize => {
+const responsiveFontSize = (baseSize) => {
   return `calc(${baseSize}px + 6 * ((100vw - 320px) / 680))`;
 };
 

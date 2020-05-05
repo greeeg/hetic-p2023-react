@@ -12,6 +12,7 @@ export const Logo = () => (
   >
     <img
       src={ReactLogo}
+      img="React.js"
       style={{ width: 80, height: 'auto', marginRight: 0 }}
     />
 
