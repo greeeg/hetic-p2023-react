@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/greeeg/hetic-p2023-react/blob/master/assets/react-logo.png" width="220" /></p>
+<p align="center"><img src="https://github.com/greeeg/hetic-p2023-react/blob/master/.github/react-logo.png" width="220" /></p>
 
 # React.js CheatSheet
 
@@ -189,7 +189,7 @@ const app = (
 ### Elles ne peuvent pas être ré-affectées
 
 ```jsx
-const Profile = props => {
+const Profile = (props) => {
   // Ceci n'est pas possible
   props.name = 'John';
 
@@ -205,7 +205,7 @@ const Profile = props => {
 ### La prop `children` permet de passer des éléments/composants en tant qu'enfant d'un composant
 
 ```jsx
-const BlogArticle = props => {
+const BlogArticle = (props) => {
   return (
     <article>
       <h1>{props.title}</h1>
@@ -426,7 +426,7 @@ const Form = () => {
         id="name"
         type="text"
         value={name}
-        onChange={e => setName(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
       />
 
       <label for="address">Address:</label>
@@ -434,7 +434,7 @@ const Form = () => {
         id="address"
         type="text"
         value={address}
-        onChange={e => setAddress(e.target.value)}
+        onChange={(e) => setAddress(e.target.value)}
       />
     </form>
   );

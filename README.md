@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/greeeg/hetic-p2023-react/blob/master/assets/react-logo.png" width="220" /></p>
+<p align="center"><img src="https://github.com/greeeg/hetic-p2023-react/blob/master/.github/react-logo.png" width="220" /></p>
 
 # hetic-p2023-react &middot; [![GitHub license](https://img.shields.io/badge/license-AGPLv3-blue)](https://github.com/greeeg/hetic-p2023-react/blob/master/LICENSE) [![Pull requests](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/greeeg/hetic-p2023-react/pulls)
 
@@ -69,7 +69,7 @@ Très concrètement, être capable de développer une application React.js fonct
 - Le routing
 - Les performances
 
-### ✨L'écosystème React
+### ✨ L'écosystème React
 
 - Thinking in React
 - The React community
