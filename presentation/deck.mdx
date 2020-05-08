@@ -1004,9 +1004,7 @@ export default Header;
 
 ---
 
-## 👨‍🔬 Construire sa première interface React.js
-
-Nous allons réaliser un [clone de Slack](https://hetic-p2023-react-examples.netlify.com/03-slack/index.html) à partir d'[une intégration front](https://github.com/greeeg/hetic-p2023-react/blob/master/resources/slack/index.html)
+## 👨‍🔬 Nous allons réaliser un [clone de Slack](https://hetic-p2023-react-examples.netlify.com/03-slack/index.html) à partir d'[une intégration front](https://github.com/greeeg/hetic-p2023-react/blob/master/resources/slack/index.html)
 
 ---
 
@@ -1302,9 +1300,7 @@ class Counter extends Component {
 
 ---
 
-## 👨‍🔬 Construire sa première interface interactive avec React.js
-
-Nous allons réaliser [l'exemple des Threads](https://hetic-p2023-react-examples.netlify.com/01-threads/index.html) avec React.js [à partir de cette source](https://github.com/greeeg/hetic-p2023-react/blob/master/resources/threads/index.html)
+## 👨‍🔬 Nous allons réaliser [l'exemple des Threads](https://hetic-p2023-react-examples.netlify.com/01-threads/index.html) avec React.js [à partir de cette source](https://github.com/greeeg/hetic-p2023-react/blob/master/resources/threads/index.html)
 
 ---
 
@@ -1998,6 +1994,210 @@ import Netlify05 from './static/netlify-05.png';
 ---
 
 ## L'AJAX avec React.js
+
+---
+
+## **Asynchronous JavaScript and XML**
+
+---
+
+## L'AJAX permet a des interfaces web d'effectuer des actions asynchrones sans pour autant recharger la page du navigateur.
+
+---
+
+#### Les applications React.js mettent à jour l'interface utilisateur sans jamais recharger la page du navigateur. AJAX est donc la seule manière de charger de nouvelles données nécessaires à l'application :
+
+<Steps>
+
+- Du contenu depuis une API
+- Soumettre un formulaire au serveur
+- Envoyer des données Analytics
+
+</Steps>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="Nous souhaitons afficher la liste des posts exposés par cette API"
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+```
+
+```jsx subtitle="Avec Fetch, on effectue une requête AJAX à cette URL"
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+
+fetch(API_ENDPOINT);
+```
+
+```jsx subtitle="Comme cette instruction est asynchrone, on utilise 'then' pour effectuer une opération lorsque l'on récupère le résultat"
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+
+fetch(API_ENDPOINT).then((response) => {
+  console.log(response);
+});
+```
+
+```jsx subtitle="On peut chaîner plusieurs 'then', notamment pour utiliser la réponse au format JSON"
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+
+fetch(API_ENDPOINT)
+  .then((response) => {
+    return response.json();
+  })
+  .then((json) => {
+    console.log(json);
+  });
+```
+
+</CodeSurfer>
+
+---
+
+## Et avec React.js ?
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="Nous souhaitons afficher la liste des posts dans l'App"
+import React from 'react';
+
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+
+const App = () => {
+  return (
+    <div>
+      <h1>The New Yorker</h1>
+
+      <ul>
+        <li>Breaking News: 1</li>
+        <li>Breaking News: 2</li>
+      </ul>
+    </div>
+  );
+};
+```
+
+```jsx subtitle="On ne doit charger les posts qu'à l'initialisation du composant"
+import React, { useEffect } from 'react';
+
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+
+const App = () => {
+  useEffect(() => {
+    console.log('Hello, I just wake up!');
+  }, []);
+
+  return (
+    <div>
+      <h1>The New Yorker</h1>
+
+      <ul>
+        <li>Breaking News: 1</li>
+        <li>Breaking News: 2</li>
+      </ul>
+    </div>
+  );
+};
+```
+
+```jsx subtitle="Une fois chargés, il faut trouver un moyen de les stocker et d'y accéder dans le JSX"
+import React, { useEffect } from 'react';
+
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+
+const App = () => {
+  useEffect(() => {
+    fetch(API_ENDPOINT)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        console.log('Posts are back from the API!', json);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>The New Yorker</h1>
+
+      <ul>
+        <li>Breaking News: 1</li>
+        <li>Breaking News: 2</li>
+      </ul>
+    </div>
+  );
+};
+```
+
+```jsx subtitle="On peut utiliser le hook 'useState' pour le faire"
+import React, { useEffect, useState } from 'react';
+
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+
+const App = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch(API_ENDPOINT)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setPosts(json);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>The New Yorker</h1>
+
+      <ul>
+        <li>Breaking News: 1</li>
+        <li>Breaking News: 2</li>
+      </ul>
+    </div>
+  );
+};
+```
+
+```jsx subtitle="Et ensuite boucler à travers les posts dans le JSX pour les afficher"
+import React, { useEffect, useState } from 'react';
+
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+
+const App = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch(API_ENDPOINT)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setPosts(json);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>The New Yorker</h1>
+
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+```
+
+</CodeSurfer>
+
+---
+
+## 👨‍🔬 Nous allons réaliser une application permettant de [découvrir des articles Wikipedia]()
 
 ---
 

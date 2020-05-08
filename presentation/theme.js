@@ -31,6 +31,10 @@ export const theme = {
       ...defaultHeadingStyles(),
       fontSize: responsiveFontSize(40)
     },
+    h4: {
+      ...defaultHeadingStyles(),
+      fontSize: responsiveFontSize(24)
+    },
     p: {
       fontWeight: '500',
       margin: 0,
