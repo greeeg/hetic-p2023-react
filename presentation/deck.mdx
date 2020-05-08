@@ -2209,7 +2209,7 @@ const App = () => {
 
 ---
 
-## Elle a été démocratisé avec le développement d'interface utilisateurs orienté composants.
+## Elle a été démocratisée avec le développement d'interface utilisateurs orienté composants.
 
 <FootNote>
   📚{' '}
@@ -2227,7 +2227,7 @@ const App = () => {
 <Button className="btn btn--primary"></Button>
 ```
 
-```jsx subtitle="À l'échelle d'un composant, on préfèrerait encapsuler tout son fonctionnement en un fichier"
+```jsx subtitle="À l'échelle d'un composant, on préfère encapsuler tout son fonctionnement en un fichier"
 <Button></Button>
 <Button primary></Button>
 ```
@@ -2384,6 +2384,184 @@ const App = () => (
 ---
 
 ## Le routing
+
+---
+
+## De manière générale, le routing est le processus qui fait correspondre un chemin à une ressource.
+
+---
+
+### En déployant un site web composé de pages HTML statiques, vous laissez le serveur web s'occuper de faire correspondre une URL au fichier correspondant.
+
+### L'URL **/** affiche le fichier **index.html**
+
+---
+
+### Avec React.js, peu importe le chemin demandé, on charge toujours le fichier **index.html**. C'est un package Javascript qui se chargera d'afficher les composants associés à la page demandée.
+
+---
+
+## Il existe plusieurs solutions de routing avec React.js
+
+<Steps>
+
+- [React router](https://github.com/ReactTraining/react-router)
+- [Reach router](https://github.com/reach/router)
+- [Router 5](https://github.com/router5/router5)
+
+</Steps>
+
+---
+
+## Nous allons utiliser [React router](https://reacttraining.com/react-router/web/guides/quick-start)
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+import React from 'react';
+import { render } from 'react-dom';
+
+const App = () => {
+  return <div>Hello from my App</div>;
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+```jsx
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/">
+          <div>Hello from my App</div>
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+```jsx
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/about">
+          <div>Hello from About page</div>
+        </Route>
+        <Route path="/">
+          <div>Hello from Home page</div>
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+```jsx
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <header>
+        <Link to="/">Homepage</Link>
+        <Link to="/about">About</Link>
+      </header>
+
+      <Switch>
+        <Route path="/about">
+          <div>Hello from About page</div>
+        </Route>
+        <Route path="/">
+          <div>Hello from Home page</div>
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+```jsx
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+
+const Home = () => <div>Hello from Home page</div>;
+const About = () => <div>Hello from About page</div>;
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <header>
+        <Link to="/">Homepage</Link>
+        <Link to="/about">About</Link>
+      </header>
+
+      <Switch>
+        <Route path="/about" component={About} />
+        <Route path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+```jsx
+import React from 'react';
+import { render } from 'react-dom';
+import { useParams } from 'react-router';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+
+const Home = () => <div>Hello from Home page</div>;
+const About = () => <div>Hello from About page</div>;
+const BlogPost = () => {
+  const { postId } = useParams();
+  return <div>Post: {postId}</div>;
+};
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <header>
+        <Link to="/">Homepage</Link>
+        <Link to="/about">About</Link>
+      </header>
+
+      <Switch>
+        <Route path="/blog/:postId" component={BlogPost} />
+        <Route path="/about" component={About} />
+        <Route path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+</CodeSurfer>
 
 ---
 
