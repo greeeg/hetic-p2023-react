@@ -2569,15 +2569,205 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ---
 
-## L'écosystème React
-
-<Link step={39}>Thinking in React</Link>
-<Link step={45}>The React community</Link>
-<Link step={51}>React.js developer roadmap</Link>
+## React is **slow**
 
 ---
 
-## Thinking in React
+<img
+  src="https://media.giphy.com/media/3s6IlivlQZQ5xtFcO2/giphy.gif"
+  style={{ width: 'auto', height: '60vh' }}
+/>
+
+---
+
+## Toute application Javascript mal conçue peut avoir tendance à perdre en performances.
+
+Il s'agit alors de connaître les limites de son fonctionnement et les actions possibles pour en améliorer les performances.
+
+---
+
+<Steps>
+
+- Re-rendre des composants inutilement
+- Build son application en un seul bundle Javascript
+- Rendre des listes importantes de données
+- Utiliser des dépendances sans en comprendre l'impact
+
+</Steps>
+
+---
+
+## Éviter de re-rendre des composants inutilement
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx 7:25
+import { useState } from 'react';
+
+const VATAmount = ({ products, selectedProductIndex }) => {
+  const vat = computeVATForProduct(products[selectedProductIndex]);
+
+  return <span>Amount: {vat}</span>;
+};
+
+const App = () => {
+  const [products, setProducts] = useState([432742394, 605498654, 192645396]);
+  const [selectedProductIndex, setSelectedProductIndex] = useState(1);
+
+  return (
+    <div>
+      <button onClick={() => setProducts([...products, 58273637253])}>
+        Add product
+      </button>
+
+      <VATAmount
+        products={products}
+        selectedProductIndex={selectedProductIndex}
+      />
+    </div>
+  );
+};
+```
+
+```jsx 2:7
+import { useState } from 'react';
+
+const VATAmount = ({ products, selectedProductIndex }) => {
+  const vat = computeVATForProduct(products[selectedProductIndex]);
+
+  return <span>Amount: {vat}</span>;
+};
+
+const App = () => {
+  const [products, setProducts] = useState([432742394, 605498654, 192645396]);
+  const [selectedProductIndex, setSelectedProductIndex] = useState(1);
+
+  return (
+    <div>
+      <button onClick={() => setProducts([...products, 58273637253])}>
+        Add product
+      </button>
+
+      <VATAmount
+        products={products}
+        selectedProductIndex={selectedProductIndex}
+      />
+    </div>
+  );
+};
+```
+
+```jsx
+import { useState, useMemo } from 'react';
+
+const VATAmount = ({ products, selectedProductIndex }) => {
+  const vat = useMemo(
+    () => computeVATForProduct(products[selectedProductIndex]),
+    [selectedProductIndex]
+  );
+
+  return <span>Amount: {vat}</span>;
+};
+
+const App = () => {
+  const [products, setProducts] = useState([432742394, 605498654, 192645396]);
+  const [selectedProductIndex, setSelectedProductIndex] = useState(1);
+
+  return (
+    <div>
+      <button onClick={() => setProducts([...products, 58273637253])}>
+        Add product
+      </button>
+
+      <VATAmount
+        products={products}
+        selectedProductIndex={selectedProductIndex}
+      />
+    </div>
+  );
+};
+```
+
+</CodeSurfer>
+
+---
+
+## Build son application en un seul bundle Javascript
+
+---
+
+### Par défaut, avec `create-react-app`, si vous utilisez la commande `yarn build`, un seul fichier JS main est généré. Il contient tous vos composants.
+
+---
+
+## Si certains de vos composants utilisent de grosses dépendances, il peut être pertinent d'en générer un fichier séparé qui ne sera chargé qu'au moment voulu.
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="Imaginons un composant ThreeScene qui affiche un rendu 3D dans mon application"
+import React from 'react';
+import * as THREE from 'three';
+
+export const ThreeScene = () => {
+  useEffect(() => {
+    const scene = new THREE.Scene();
+    // ...
+  }, []);
+
+  return <div id="scene" />;
+};
+```
+
+```jsx subtitle="Avec React.lazy, il n'est chargé que lorsque l'on a besoin de l'afficher et génèrera un fichier à part."
+import React, { Suspense } from 'react';
+
+const ThreeScene = React.lazy(() => import('./ThreeScene'));
+
+const App = () => {
+  return (
+    <div>
+      <header>App Name</header>
+
+      <Suspense fallback={<div>Loading 3D Scene...</div>}>
+        <ThreeScene />
+      </Suspense>
+    </div>
+  );
+};
+```
+
+</CodeSurfer>
+
+---
+
+## Rendre des listes importantes de données
+
+---
+
+### Il peut être intéressant de virtualiser des listes importantes de données pour en améliorer les performances. On utilise des packages tels que [react-window](https://github.com/bvaughn/react-window) ou [react-virtualized](https://github.com/bvaughn/react-virtualized).
+
+---
+
+## Utiliser des dépendances sans en comprendre l'impact
+
+---
+
+### Il est difficile de comprendre l'impact d'une librairie sur les performances d'une application. Sans aucun contrôle ni mesure, on peut rapidement dégrader l'expérience utilisateur de son site web.
+
+---
+
+## Un bon outil pour ça : [Bundlephobia](https://bundlephobia.com/)
+
+---
+
+## L'écosystème React
+
+<Link step={45}>The React community</Link>
+<Link step={51}>React.js developer roadmap</Link>
 
 ---
 
@@ -2585,4 +2775,33 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ---
 
+## En plus de la [Core Team](https://fr.reactjs.org/community/team.html) qui travaille à plein temps sur React.js, il existe des [dizaines de personnes](https://twitter.com/dan_abramov/status/937339649537781762) actives dans la communauté à suivre.
+
+---
+
+## En particulier
+
+<Steps>
+
+- [Dan Abramov](https://twitter.com/dan_abramov)
+- [Kent C Dodds](https://twitter.com/kentcdodds)
+- [Max Stoiber](https://twitter.com/mxstbr)
+- [Peggy Rayzis](https://twitter.com/peggyrayzis)
+- [Wes Bos](https://twitter.com/wesbos)
+- [Sara Vieira](https://twitter.com/NikkitaFTW)
+- [Guillermo Rauch](https://twitter.com/rauchg)
+
+</Steps>
+
+---
+
 ## React.js developer roadmap
+
+---
+
+<a href="https://github.com/adam-golab/react-developer-roadmap" target="_blank">
+  <img
+    src="https://github.com/adam-golab/react-developer-roadmap/raw/master/roadmap.png"
+    style={{ width: 'auto', height: '70vh' }}
+  />
+</a>
