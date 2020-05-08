@@ -9,15 +9,22 @@ const GlobalStyles = createGlobalStyle`
   * {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
+
+  body {
+    background-color: #f4f0ec;
+  }
 `;
 
 export const App = () => (
-  <Router>
-    <Header />
+  <>
+    <GlobalStyles />
+    <Router>
+      <Header />
 
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/random/:title" component={Article} />
-    </Switch>
-  </Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/random/:title" component={Article} />
+      </Switch>
+    </Router>
+  </>
 );

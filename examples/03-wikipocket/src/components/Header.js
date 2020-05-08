@@ -16,7 +16,7 @@ const Logo = styled(Link)`
   display: inline-block;
   font-size: 96px;
   font-weight: 900;
-  color: #111111;
+  color: #232423;
   text-decoration: underline;
   margin-bottom: 8px;
 `;
@@ -33,13 +33,13 @@ const Navigation = styled.nav`
   }
 
   a {
-    color: #111111;
+    color: #232423;
     font-weight: bold;
     text-decoration: none;
     font-size: 18px;
 
     &:hover {
-      border-bottom: 3px solid #111111;
+      border-bottom: 3px solid #232423;
     }
   }
 `;
