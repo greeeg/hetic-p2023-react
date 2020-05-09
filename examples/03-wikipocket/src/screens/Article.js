@@ -1,6 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import styled from 'styled-components';
 import { ARTICLE_CONTENT_ENDPOINT } from '../config';
+
+const Container = styled.div`
+  width: 100%;
+  max-width: 600px;
+  padding: 32px;
+  padding-bottom: 200px;
+`;
+
+const Title = styled.h1`
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 900;
+  padding-right: 8px;
+  margin-bottom: 12px;
+`;
+
+const Link = styled.a`
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 12px;
+`;
+
+const Content = styled.p`
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  line-height: 1.5;
+`;
 
 export const Article = () => {
   const { title } = useParams();
@@ -15,14 +43,14 @@ export const Article = () => {
   }, []);
 
   return (
-    <div>
-      <h1>{title}</h1>
+    <Container>
+      <Title>{title}</Title>
 
-      <a href={`https://en.wikipedia.org/wiki/${title}`} target="_blank">
+      <Link href={`https://en.wikipedia.org/wiki/${title}`} target="_blank">
         Link
-      </a>
+      </Link>
 
-      {post && <div>{post.extract}</div>}
-    </div>
+      {post && <Content>{post.extract}</Content>}
+    </Container>
   );
 };

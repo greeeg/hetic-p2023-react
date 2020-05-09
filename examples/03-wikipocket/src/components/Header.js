@@ -3,25 +3,28 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Container = styled.header`
-  width: 100%;
+  display: inline-block;
+  padding: 0px 32px;
+`;
+
+const Inner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 0px 32px;
-  margin: 0 auto;
-  margin-top: 32px;
 `;
 
 const Logo = styled(Link)`
-  display: inline-block;
   font-size: 96px;
   font-weight: 900;
-  color: #232423;
   text-decoration: underline;
-  margin-bottom: 8px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 42px;
+  }
 `;
 
 const Navigation = styled.nav`
+  display: inline-block;
   ul {
     display: flex;
     flex-direction: row;
@@ -33,7 +36,6 @@ const Navigation = styled.nav`
   }
 
   a {
-    color: #232423;
     font-weight: bold;
     text-decoration: none;
     font-size: 18px;
@@ -46,17 +48,19 @@ const Navigation = styled.nav`
 
 export const Header = () => (
   <Container>
-    <Logo to="/">Wikipocket</Logo>
+    <Inner>
+      <Logo to="/">Wikipocket</Logo>
 
-    <Navigation>
-      <ul>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact us</Link>
-        </li>
-      </ul>
-    </Navigation>
+      <Navigation>
+        <ul>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact us</Link>
+          </li>
+        </ul>
+      </Navigation>
+    </Inner>
   </Container>
 );

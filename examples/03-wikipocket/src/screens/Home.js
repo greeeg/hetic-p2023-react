@@ -6,17 +6,14 @@ import { RANDOM_ARTICLES_ENDPOINT } from '../config';
 const Container = styled.div`
   width: 100%;
   padding: 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  padding-bottom: 200px;
 `;
 
 const InnerContainer = styled.div`
   max-width: 600px;
-  text-align: right;
 
   a {
-    margin: 16px 0px 16px 16px;
+    display: block;
     line-height: 1.6;
     font-size: 18px;
     color: #111111;

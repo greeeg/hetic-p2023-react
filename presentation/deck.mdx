@@ -55,15 +55,6 @@ HETIC P2023
 
 ---
 
-# Méthodologie
-
-- 📚 Must read
-- 🍿 Must watch
-- ⚡️ Must learn
-- 👨‍🔬 Action time
-
----
-
 # Un peu d'histoire...
 
 Comment fonctionne l'affichage d'une page web ?
@@ -258,7 +249,7 @@ import ReactPlatforms from './static/react-platforms.png';
 <img src={ReactPlatforms} style={{ width: '60vw', height: 'auto' }} />
 
 <FootNote>
-  🍿{' '}
+  📚{' '}
   <a href="https://reactpodcast.simplecast.fm/81">
     React Podcast: Evan Bacon on Expo and the Future of "Build Once; Run
     Anywhere"
@@ -302,19 +293,19 @@ import ReactPlatforms from './static/react-platforms.png';
 
 ## Les bases de React.js
 
-<Link step={39}>Le JSX</Link>
-<Link step={45}>Les composants</Link>
-<Link step={51}>Les props</Link>
-<Link step={57}>Le style</Link>
-<Link step={68}>Gestion des évènements</Link>
+<Link step={38}>Le JSX</Link>
+<Link step={44}>Les composants</Link>
+<Link step={50}>Les props</Link>
+<Link step={56}>Le style</Link>
+<Link step={67}>Gestion des évènements</Link>
 
 ---
 
-<Link step={72}>Le state</Link>
-<Link step={80}>Le cycle de vie</Link>
-<Link step={89}>Le rendu conditionnel</Link>
-<Link step={92}>Les listes</Link>
-<Link step={94}>Les formulaires</Link>
+<Link step={71}>Le state</Link>
+<Link step={79}>Le cycle de vie</Link>
+<Link step={88}>Le rendu conditionnel</Link>
+<Link step={91}>Les listes</Link>
+<Link step={93}>Les formulaires</Link>
 
 ---
 
@@ -775,7 +766,7 @@ function WishHappyBirthday() {
 const App = () => <WishHappyBirthday />;
 ```
 
-```jsx subtitle="Ici, je passe une prop qui est utilisée dans le JSX"
+```jsx subtitle="Ici, on passe une prop qui est utilisée dans le JSX"
 function WishHappyBirthday(props) {
   return <p>HAPPY BIRTHDAY {props.name.toUpperCase()}!</p>;
 }
@@ -795,7 +786,7 @@ const App = () => <WishHappyBirthday name="Julia" />;
 
 ---
 
-# ⚡️En résumé
+# En résumé
 
 <Steps>
 
@@ -807,7 +798,7 @@ const App = () => <WishHappyBirthday name="Julia" />;
 
 ---
 
-# ⚡️En résumé
+# En résumé
 
 <Steps>
 
@@ -931,7 +922,7 @@ const App = () => (
 </body>
 ```
 
-```html 22:26
+```html 20:22
 <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
@@ -1687,16 +1678,16 @@ const TextInput = () => {
 
 ## Aller plus loin avec React.js
 
-<Link step={103}>create-react-app</Link>
-<Link step={113}>React Dev Tools</Link>
-<Link step={118}>Déployer une app React.js</Link>
+<Link step={102}>create-react-app</Link>
+<Link step={112}>React Dev Tools</Link>
+<Link step={117}>Déployer une app React.js</Link>
 
 ---
 
-<Link step={123}>L'AJAX avec React.js</Link>
-<Link step={68}>Le CSS-in-JS</Link>
-<Link step={68}>Le routing</Link>
-<Link step={68}>Les performances</Link>
+<Link step={130}>L'AJAX avec React.js</Link>
+<Link step={138}>Le CSS-in-JS</Link>
+<Link step={147}>Le routing</Link>
+<Link step={154}>Les performances</Link>
 
 ---
 
@@ -2005,13 +1996,12 @@ import Netlify05 from './static/netlify-05.png';
 
 ---
 
-#### Les applications React.js mettent à jour l'interface utilisateur sans jamais recharger la page du navigateur. AJAX est donc la seule manière de charger de nouvelles données nécessaires à l'application :
+#### Les applications React.js mettent à jour l'interface utilisateur sans jamais recharger la page du navigateur. AJAX est donc la seule manière de mettre à jour notre interface pour :
 
 <Steps>
 
-- Du contenu depuis une API
-- Soumettre un formulaire au serveur
-- Envoyer des données Analytics
+- Charger des données depuis une API (Profil utilisateur, etc.)
+- Envoyer des donnés à une API (Formulaire, Analytics, etc.)
 
 </Steps>
 
@@ -2209,7 +2199,7 @@ const App = () => {
 
 ---
 
-## Elle a été démocratisée avec le développement d'interface utilisateurs orienté composants.
+## Elle a été démocratisée avec le développement d'interfaces utilisateurs orientées composants.
 
 <FootNote>
   📚{' '}
@@ -2722,7 +2712,7 @@ export const ThreeScene = () => {
 };
 ```
 
-```jsx subtitle="Avec React.lazy, il n'est chargé que lorsque l'on a besoin de l'afficher et génèrera un fichier à part."
+```jsx subtitle="Avec React.lazy, on indique à React que le chargement de ce composant n'est pas essentiel et peut être retardé. Un fichier JS à part sera donc généré et chargé en temps voulu."
 import React, { Suspense } from 'react';
 
 const ThreeScene = React.lazy(() => import('./ThreeScene'));
@@ -2766,8 +2756,8 @@ const App = () => {
 
 ## L'écosystème React
 
-<Link step={45}>The React community</Link>
-<Link step={51}>React.js developer roadmap</Link>
+<Link step={171}>The React community</Link>
+<Link step={174}>React.js developer roadmap</Link>
 
 ---
 

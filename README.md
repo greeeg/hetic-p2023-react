@@ -10,20 +10,13 @@ L'objectif de ce cours est d'introduire la librarie React.js et son rôle dans l
 
 Très concrètement, être capable de développer une application React.js fonctionnelle et être en mesure de développer ses compétences par soi-même par la suite.
 
-## 📐 Méthodologie
-
-- 📚 **Must read**: Ressources à lire pour mieux comprendre (Article, Thread)
-- 🍿 **Must watch**: Ressources à voir/écouter pour aller plus loin (Podcast, Talk, Tutoriel)
-- ⚡️ **Must learn**: Éléments très concrets à retenir
-- 👨‍🔬 **Action time**: À vous d'expérimenter et de coder (Pair programming possible)
-
 ## 🗺 Ressources
 
 - 👨‍🏫 **La présentation**: [`Site web`](https://hetic-p2023-react.netlify.com/) [`PDF`](https://github.com/greeeg/hetic-p2023-react/raw/master/hetic-p2023-react.pdf)
 - 🗺 **La CheatSheet**: [`GitHub`](https://github.com/greeeg/hetic-p2023-react/blob/master/CHEATSHEET.md)
 
-* 👩‍🔧 **Sandbox G1**: [`Codesandbox.io`](https://codesandbox.io/s/hetic-p2023-g1-yy6k8)
-* 👩‍🔧 **Sandbox G2**: [`Codesandbox.io`](https://codesandbox.io/s/hetic-p2023-g2-pqsd7)
+* 👩‍🔧 **Sandbox G1**: [`Codesandbox.io`](https://codesandbox.io/s/hetic-p2023-g1-b1mm7)
+* 👩‍🔧 **Sandbox G2**: [`Codesandbox.io`](https://codesandbox.io/s/hetic-p2023-g2-be307)
 
 ## 🏁 Le plan
 
@@ -70,6 +63,5 @@ Très concrètement, être capable de développer une application React.js fonct
 
 ### ✨ L'écosystème React
 
-- Thinking in React
 - The React community
 - React.js developer roadmap
