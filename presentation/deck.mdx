@@ -1685,8 +1685,8 @@ const TextInput = () => {
 ---
 
 <Link step={130}>L'AJAX avec React.js</Link>
-<Link step={138}>Le CSS-in-JS</Link>
-<Link step={147}>Le routing</Link>
+<Link step={138}>Le routing</Link>
+<Link step={145}>Le CSS-in-JS</Link>
 <Link step={154}>Les performances</Link>
 
 ---
@@ -2191,188 +2191,6 @@ const App = () => {
 
 ---
 
-## Le CSS-in-JS
-
----
-
-## Le CSS-in-JS est une méthodologie visant à écrire son style au sein de fichiers Javascript.
-
----
-
-## Elle a été démocratisée avec le développement d'interfaces utilisateurs orientées composants.
-
-<FootNote>
-  📚{' '}
-  <a href="https://www.youtube.com/watch?v=bIK2NwoK9xk&feature=youtu.be&t=114">
-    Max Stoiber - The Component Age & Styling React Applications
-  </a>
-</FootNote>
-
----
-
-<CodeSurfer theme={nightOwl}>
-
-```jsx subtitle="Cette implémentation n'a de sens que lorsque l'on travaille à l'échelle de pages liées à des feuilles de style"
-<Button className="btn"></Button>
-<Button className="btn btn--primary"></Button>
-```
-
-```jsx subtitle="À l'échelle d'un composant, on préfère encapsuler tout son fonctionnement en un fichier"
-<Button></Button>
-<Button primary></Button>
-```
-
-</CodeSurfer>
-
----
-
-## If you're using React, you have access to a more powerful styling construct than CSS class names. You have components.
-
-#### -Michael Chan
-
----
-
-<CodeSurfer theme={nightOwl}>
-
-```jsx
-<App>
-  <Header variation="dark">
-    <Navigation>
-      <Link active to="/about">
-        About us
-      </Link>
-      <Link to="/contact">Contact</Link>
-    </Navigation>
-  </Header>
-</App>
-```
-
-</CodeSurfer>
-
----
-
-## Il existe des dizaines de solutions de CSS-in-JS avec React.js
-
-<Steps>
-
-- [Styled-components](https://github.com/styled-components/styled-components)
-- [Styled JSX](https://github.com/zeit/styled-jsx)
-- [JSS](https://github.com/cssinjs/jss)
-- [Glamor](https://github.com/threepointone/glamor)
-- [Emotion](https://github.com/emotion-js/emotion)
-- [Aphrodite](https://github.com/Khan/aphrodite)
-
-</Steps>
-
----
-
-## Nous allons utiliser [Styled-components](https://styled-components.com/docs)
-
----
-
-<CodeSurfer theme={nightOwl}>
-
-```jsx
-import styled from 'styled-components';
-```
-
-```jsx
-import styled from 'styled-components';
-
-const Button = styled.button`
-  color: palevioletred;
-  background-color: papayawhip;
-  padding: 1em;
-`;
-```
-
-```jsx
-import styled from 'styled-components';
-
-const Button = styled.button`
-  color: palevioletred;
-  background-color: papayawhip;
-  padding: 1em;
-`;
-
-const App = () => (
-  <div>
-    <Button>Click me</Button>
-  </div>
-);
-```
-
-```jsx
-import styled from 'styled-components';
-
-const Button = styled.button`
-  color: palevioletred;
-  background-color: papayawhip;
-  padding: ${(props) => (props.primary ? 2 : 1)}em;
-`;
-
-const App = () => (
-  <div>
-    <Button>Click me</Button>
-    <Button primary>Click me</Button>
-  </div>
-);
-```
-
-```jsx
-import styled from 'styled-components';
-
-const Button = styled.button`
-  color: palevioletred;
-  background-color: papayawhip;
-  padding: ${(props) => (props.primary ? 2 : 1)}em;
-
-  span {
-    color: red;
-  }
-`;
-
-const App = () => (
-  <div>
-    <Button>
-      <span>I'm a red span inside a Button</span>
-    </Button>
-    <Button primary>Click me</Button>
-  </div>
-);
-```
-
-```jsx
-import styled from 'styled-components';
-
-const Button = styled.button`
-  color: palevioletred;
-  background-color: papayawhip;
-  padding: ${(props) => (props.primary ? 2 : 1)}em;
-
-  span {
-    color: red;
-  }
-`;
-
-const SmallButton = styled(Button)`
-  font-size: 12px;
-`;
-
-const App = () => (
-  <div>
-    <SmallButton>
-      <span>I'm a red span inside a Button</span>
-    </SmallButton>
-    <Button primary>Click me</Button>
-  </div>
-);
-```
-
-</CodeSurfer>
-
----
-
 ## Le routing
 
 ---
@@ -2549,6 +2367,188 @@ const App = () => {
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+</CodeSurfer>
+
+---
+
+## Le CSS-in-JS
+
+---
+
+## Le CSS-in-JS est une méthodologie visant à écrire son style au sein de fichiers Javascript.
+
+---
+
+## Elle a été démocratisée avec le développement d'interfaces utilisateurs orientées composants.
+
+<FootNote>
+  📚{' '}
+  <a href="https://www.youtube.com/watch?v=bIK2NwoK9xk&feature=youtu.be&t=114">
+    Max Stoiber - The Component Age & Styling React Applications
+  </a>
+</FootNote>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx subtitle="Cette implémentation n'a de sens que lorsque l'on travaille à l'échelle de pages liées à des feuilles de style"
+<Button className="btn"></Button>
+<Button className="btn btn--primary"></Button>
+```
+
+```jsx subtitle="À l'échelle d'un composant, on préfère encapsuler tout son fonctionnement en un fichier"
+<Button></Button>
+<Button primary></Button>
+```
+
+</CodeSurfer>
+
+---
+
+## If you're using React, you have access to a more powerful styling construct than CSS class names. You have components.
+
+#### -Michael Chan
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+<App>
+  <Header variation="dark">
+    <Navigation>
+      <Link active to="/about">
+        About us
+      </Link>
+      <Link to="/contact">Contact</Link>
+    </Navigation>
+  </Header>
+</App>
+```
+
+</CodeSurfer>
+
+---
+
+## Il existe des dizaines de solutions de CSS-in-JS avec React.js
+
+<Steps>
+
+- [Styled-components](https://github.com/styled-components/styled-components)
+- [Styled JSX](https://github.com/zeit/styled-jsx)
+- [JSS](https://github.com/cssinjs/jss)
+- [Glamor](https://github.com/threepointone/glamor)
+- [Emotion](https://github.com/emotion-js/emotion)
+- [Aphrodite](https://github.com/Khan/aphrodite)
+
+</Steps>
+
+---
+
+## Nous allons utiliser [Styled-components](https://styled-components.com/docs)
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+import styled from 'styled-components';
+```
+
+```jsx
+import styled from 'styled-components';
+
+const Button = styled.button`
+  color: palevioletred;
+  background-color: papayawhip;
+  padding: 1em;
+`;
+```
+
+```jsx
+import styled from 'styled-components';
+
+const Button = styled.button`
+  color: palevioletred;
+  background-color: papayawhip;
+  padding: 1em;
+`;
+
+const App = () => (
+  <div>
+    <Button>Click me</Button>
+  </div>
+);
+```
+
+```jsx
+import styled from 'styled-components';
+
+const Button = styled.button`
+  color: palevioletred;
+  background-color: papayawhip;
+  padding: ${(props) => (props.primary ? 2 : 1)}em;
+`;
+
+const App = () => (
+  <div>
+    <Button>Click me</Button>
+    <Button primary>Click me</Button>
+  </div>
+);
+```
+
+```jsx
+import styled from 'styled-components';
+
+const Button = styled.button`
+  color: palevioletred;
+  background-color: papayawhip;
+  padding: ${(props) => (props.primary ? 2 : 1)}em;
+
+  span {
+    color: red;
+  }
+`;
+
+const App = () => (
+  <div>
+    <Button>
+      <span>I'm a red span inside a Button</span>
+    </Button>
+    <Button primary>Click me</Button>
+  </div>
+);
+```
+
+```jsx
+import styled from 'styled-components';
+
+const Button = styled.button`
+  color: palevioletred;
+  background-color: papayawhip;
+  padding: ${(props) => (props.primary ? 2 : 1)}em;
+
+  span {
+    color: red;
+  }
+`;
+
+const SmallButton = styled(Button)`
+  font-size: 12px;
+`;
+
+const App = () => (
+  <div>
+    <SmallButton>
+      <span>I'm a red span inside a Button</span>
+    </SmallButton>
+    <Button primary>Click me</Button>
+  </div>
+);
 ```
 
 </CodeSurfer>
