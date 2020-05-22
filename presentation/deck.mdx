@@ -2578,109 +2578,32 @@ Il s'agit alors de connaître les limites de son fonctionnement et les actions p
 
 <Steps>
 
-- Re-rendre des composants inutilement
-- Build son application en un seul bundle Javascript
-- Rendre des listes importantes de données
 - Utiliser des dépendances sans en comprendre l'impact
+- Afficher des listes importantes de données
+- Build son application en un seul bundle Javascript
+- Re-calculer des choses inutilement
 
 </Steps>
 
 ---
 
-## Éviter de re-rendre des composants inutilement
+## Utiliser des dépendances sans en comprendre l'impact
 
 ---
 
-<CodeSurfer theme={nightOwl}>
+### Il est difficile de comprendre l'impact d'une librairie sur les performances d'une application. Sans aucun contrôle ni mesure, on peut rapidement dégrader l'expérience utilisateur de son site web.
 
-```jsx 7:25
-import { useState } from 'react';
+---
 
-const VATAmount = ({ products, selectedProductIndex }) => {
-  const vat = computeVATForProduct(products[selectedProductIndex]);
+## Un bon outil pour ça : [Bundlephobia](https://bundlephobia.com/)
 
-  return <span>Amount: {vat}</span>;
-};
+---
 
-const App = () => {
-  const [products, setProducts] = useState([432742394, 605498654, 192645396]);
-  const [selectedProductIndex, setSelectedProductIndex] = useState(1);
+## Afficher des listes importantes de données
 
-  return (
-    <div>
-      <button onClick={() => setProducts([...products, 58273637253])}>
-        Add product
-      </button>
+---
 
-      <VATAmount
-        products={products}
-        selectedProductIndex={selectedProductIndex}
-      />
-    </div>
-  );
-};
-```
-
-```jsx 2:7
-import { useState } from 'react';
-
-const VATAmount = ({ products, selectedProductIndex }) => {
-  const vat = computeVATForProduct(products[selectedProductIndex]);
-
-  return <span>Amount: {vat}</span>;
-};
-
-const App = () => {
-  const [products, setProducts] = useState([432742394, 605498654, 192645396]);
-  const [selectedProductIndex, setSelectedProductIndex] = useState(1);
-
-  return (
-    <div>
-      <button onClick={() => setProducts([...products, 58273637253])}>
-        Add product
-      </button>
-
-      <VATAmount
-        products={products}
-        selectedProductIndex={selectedProductIndex}
-      />
-    </div>
-  );
-};
-```
-
-```jsx
-import { useState, useMemo } from 'react';
-
-const VATAmount = ({ products, selectedProductIndex }) => {
-  const vat = useMemo(
-    () => computeVATForProduct(products[selectedProductIndex]),
-    [selectedProductIndex]
-  );
-
-  return <span>Amount: {vat}</span>;
-};
-
-const App = () => {
-  const [products, setProducts] = useState([432742394, 605498654, 192645396]);
-  const [selectedProductIndex, setSelectedProductIndex] = useState(1);
-
-  return (
-    <div>
-      <button onClick={() => setProducts([...products, 58273637253])}>
-        Add product
-      </button>
-
-      <VATAmount
-        products={products}
-        selectedProductIndex={selectedProductIndex}
-      />
-    </div>
-  );
-};
-```
-
-</CodeSurfer>
+### Il peut être intéressant de virtualiser des listes importantes de données pour en améliorer les performances. On utilise des packages tels que [react-window](https://github.com/bvaughn/react-window) ou [react-virtualized](https://github.com/bvaughn/react-virtualized).
 
 ---
 
@@ -2734,23 +2657,151 @@ const App = () => {
 
 ---
 
-## Rendre des listes importantes de données
+## Éviter de re-calculer des choses inutilement
 
 ---
 
-### Il peut être intéressant de virtualiser des listes importantes de données pour en améliorer les performances. On utilise des packages tels que [react-window](https://github.com/bvaughn/react-window) ou [react-virtualized](https://github.com/bvaughn/react-virtualized).
+<CodeSurfer theme={nightOwl}>
+
+```jsx
+import React, { useState } from 'react';
+
+const CheckoutButton = ({ cart }) => {
+  let total = 0;
+  cart.products.forEach((product) => {
+    total += product.price * product.count;
+  });
+
+  return <button>Buy for ${total}</button>;
+};
+
+const App = () => {
+  const [cart, setCart] = useState({
+    color: 'blue',
+    products: [
+      {
+        name: 'Large T Shirt',
+        price: 12.9,
+        count: 1
+      },
+      {
+        name: 'Hoodie',
+        price: 50.8,
+        count: 2
+      }
+    ]
+  });
+
+  return (
+    <div>
+      <CheckoutButton cart={cart} />
+    </div>
+  );
+};
+```
+
+```jsx
+import React, { useState } from 'react';
+
+const CheckoutButton = ({ cart }) => {
+  let total = 0;
+  cart.products.forEach((product) => {
+    total += product.price * product.count;
+  });
+
+  return <button>Buy for ${total}</button>;
+};
+
+const App = () => {
+  const [cart, setCart] = useState({
+    color: 'blue',
+    products: [
+      {
+        name: 'Large T Shirt',
+        price: 12.9,
+        count: 1
+      },
+      {
+        name: 'Hoodie',
+        price: 50.8,
+        count: 2
+      }
+    ]
+  });
+
+  return (
+    <div>
+      <button
+        onClick={() =>
+          setCart({
+            ...cart,
+            color: 'purple'
+          })
+        }
+      >
+        Update color
+      </button>
+      <CheckoutButton cart={cart} />
+    </div>
+  );
+};
+```
+
+```jsx
+import React, { useState, useMemo } from 'react';
+
+const CheckoutButton = ({ total }) => {
+  return <button>Buy for ${total}</button>;
+};
+
+const App = () => {
+  const [cart, setCart] = useState({
+    color: 'blue',
+    products: [
+      {
+        name: 'Large T Shirt',
+        price: 12.9,
+        count: 1
+      },
+      {
+        name: 'Hoodie',
+        price: 50.8,
+        count: 2
+      }
+    ]
+  });
+
+  const total = useMemo(() => {
+    let t = 0;
+    cart.products.forEach((product) => {
+      t += product.price * product.count;
+    });
+    return t;
+  }, [cart.products]);
+
+  return (
+    <div>
+      <button
+        onClick={() =>
+          setCart({
+            ...cart,
+            color: 'purple'
+          })
+        }
+      >
+        Update color
+      </button>
+      <CheckoutButton total={total} />
+    </div>
+  );
+};
+```
+
+</CodeSurfer>
 
 ---
 
-## Utiliser des dépendances sans en comprendre l'impact
-
----
-
-### Il est difficile de comprendre l'impact d'une librairie sur les performances d'une application. Sans aucun contrôle ni mesure, on peut rapidement dégrader l'expérience utilisateur de son site web.
-
----
-
-## Un bon outil pour ça : [Bundlephobia](https://bundlephobia.com/)
+## Le hook **useMemo** permet de memoïser une valeur afin de ne la recalculer que si une de ses entrées change.
 
 ---
 
@@ -2795,3 +2846,107 @@ const App = () => {
     style={{ width: 'auto', height: '70vh' }}
   />
 </a>
+
+---
+
+## Bonus 🤗
+
+---
+
+# React Native
+
+---
+
+### Build native mobile apps **using JavaScript and React**
+
+---
+
+## Native vs Hybrid vs Web App
+
+---
+
+## **Native apps**
+
+### Elles représentent la grande majorité des applications sur vos téléphones
+
+---
+
+## **Avantages**
+
+- Performances
+- Fonctionalités natives
+
+---
+
+## **Inconvénients**
+
+- Plusieurs codebases
+- Nécessite plus de développeurs
+
+---
+
+## **Hybrid apps**
+
+### Une application web encapsulée dans une application native
+
+---
+
+## **Avantages**
+
+- Temps de développement
+- HTML, CSS, JS
+
+---
+
+## **Inconvénients**
+
+- Performances
+- Expérience utilisateur
+
+---
+
+## **Web apps (PWA)**
+
+### Une application web avec des capacités mobiles
+
+---
+
+## **Avantages**
+
+- Rien à installer
+- Fonctionnalités natives
+- Performances
+- Temps de développement
+
+---
+
+## **Inconvénients**
+
+- Absent des stores
+- Compatibilité limitée
+
+---
+
+## Et React Native au milieu de tout ça ?
+
+---
+
+<Steps>
+
+- Faire du natif lorsque l'on vient du web
+- 1 codebase : 2 plateformes
+- Aller vite
+
+</Steps>
+
+---
+
+## On essaye ?
+
+### [reactnative.dev](https://reactnative.dev/docs/environment-setup)
+
+---
+
+- 📣 Twitter: [@greeeg](https://twitter.com/greeeg)
+- 🔬 GitHub: [@greeeg](https://github.com/greeeg)
+- ✏️ Email: [hello@greeeg.com](mailto:hello@greeeg.com)
